@@ -1,5 +1,3 @@
-'use client';
-
 import { Oswald } from 'next/font/google';
 
 import { Footer, Header } from '@/components';

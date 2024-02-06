@@ -14,10 +14,10 @@ export function ProductCard() {
         />
       </div>
       <div className='text-center'>
-        <h2 className='uppercase text-2xl mb-2'>Chậu Lan Hồ Điệp Tết - Phú Quý</h2>
-        <p className='text-2xl'>120.000đ</p>
+        <h2 className='uppercase text-base mb-2'>Chậu Lan Hồ Điệp Tết - Phú Quý</h2>
+        <p className='text-base'>120.000đ</p>
       </div>
-      <span className='uppercase px-8 py-4 bg-gray-200 absolute right-0 text-xl'>Sold out</span>
+      <span className='uppercase px-8 py-4 bg-gray-200 absolute right-0 text-sm'>Sold out</span>
     </div>
   );
 }

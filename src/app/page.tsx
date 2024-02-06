@@ -10,7 +10,7 @@ export default function Home() {
       <div className='container'>
         <div className='flex flex-col gap-10'>
           <div className='flex flex-col items-center gap-4'>
-            <h2 className='uppercase font-[400] text-4xl text-center'>FLORIST SPECIAL DESIGNS AND GIFTS FOR JANUARY</h2>
+            <h2 className='uppercase font-[400] text-xl text-center'>FLORIST SPECIAL DESIGNS AND GIFTS FOR JANUARY</h2>
             <span className='block w-12 h-1 rounded-lg bg-yellow-400' />
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[6rem]'>
@@ -22,7 +22,7 @@ export default function Home() {
                 </div>
               ))}
           </div>
-          <IconButton className='w-fit text-2xl mx-auto'>View all bouquets</IconButton>
+          <IconButton className='w-fit text-base mx-auto'>View all bouquets</IconButton>
         </div>
       </div>
       <div className='w-screen flex flex-col gap-12 items-center'>
@@ -43,7 +43,7 @@ export default function Home() {
       <div className='container'>
         <div className='flex flex-col gap-10'>
           <div className='flex flex-col items-center gap-4'>
-            <h2 className='uppercase font-[400] text-4xl text-center'>FLORIST SPECIAL DESIGNS AND GIFTS FOR JANUARY</h2>
+            <h2 className='uppercase font-[400] text-xl text-center'>FLORIST SPECIAL DESIGNS AND GIFTS FOR JANUARY</h2>
             <span className='block w-12 h-1 rounded-lg bg-yellow-400' />
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[6rem]'>
@@ -55,7 +55,7 @@ export default function Home() {
                 </div>
               ))}
           </div>
-          <IconButton className='w-fit text-2xl mx-auto'>View all bouquets</IconButton>
+          <IconButton className='w-fit text-base mx-auto'>View all bouquets</IconButton>
         </div>
       </div>
     </div>

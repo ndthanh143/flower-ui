@@ -13,6 +13,22 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    fontSize: {
+      sm: '1.2rem',
+      base: '1.4rem',
+      lg: '1.8rem',
+      xl: '2.2rem',
+      '2xl': '2.6rem',
+      '3xl': '3rem',
+      '4xl': '3.4rem',
+      '5xl': '3.8rem',
+    },
+    keyframes: {
+      'fade-in': { '0%': { transform: 'opacity(0)' }, '100%': { transform: 'opacity(100)' } },
+    },
+    animation: {
+      'fade-in': 'fade-in .2s ease-in-out',
+    },
     container: { center: true },
   },
   plugins: [],
