@@ -30,7 +30,7 @@ export function SlideShow({ images }: ISlideShowProps) {
     <div className='flex flex-col gap-8'>
       <div className='flex items-center gap-[36px] text-gray-400'>
         <AngleRightIcon
-          className='cursor-pointer h-[80px] hover:opacity-60 transition-all duration-100 rotate-180'
+          className='cursor-pointer h-[80px] hover:opacity-60 transition-all duration-100 text-gray-600 rotate-180'
           color='currentColor'
           onClick={handleChangeImages('prev')}
         />
@@ -48,7 +48,7 @@ export function SlideShow({ images }: ISlideShowProps) {
           </div>
         ))}
         <AngleRightIcon
-          className='cursor-pointer h-[80px] hover:opacity-60 transition-all duration-100'
+          className='cursor-pointer h-[80px] hover:opacity-60 transition-all duration-100 text-gray-600'
           onClick={handleChangeImages('next')}
         />
       </div>
@@ -56,10 +56,10 @@ export function SlideShow({ images }: ISlideShowProps) {
         {images.map((image, index) => (
           <div
             className={cx(
-              'col-span-1 w-[50px] h-[60px] cursor-pointer transition-opacity duration-200 ease-in-out hover:opacity-100',
+              'col-span-1 w-[56px] h-[56px] cursor-pointer transition-opacity duration-200 ease-in-out hover:opacity-100 border-2',
               {
-                'opacity-100': index === currentImage,
-                'opacity-60': index !== currentImage,
+                'opacity-100 border-yellow-400': index === currentImage,
+                'opacity-60 border-transparent': index !== currentImage,
               },
             )}
             key={index}

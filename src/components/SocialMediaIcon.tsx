@@ -11,10 +11,12 @@ interface ISocialMediaIconProps {
 }
 
 export function SocialMediaIcon({ link, type }: ISocialMediaIconProps) {
-  const socialIcon: Record<TSocialMediaType, ReactNode> = { facebook: <FacebookIcon /> };
+  const socialIcon: Record<TSocialMediaType, ReactNode> = { facebook: <FacebookIcon className='w-1/4 h-1/4 m-auto' /> };
   return (
-    <div className='rounded-full border'>
-      <Link href={link}>{socialIcon[type]}</Link>
-    </div>
+    <Link href={link}>
+      <div className='rounded-full border w-full h-full flex items-center hover:border-black transition-all duration-150'>
+        <span>{socialIcon[type]}</span>
+      </div>
+    </Link>
   );
 }

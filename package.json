@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@strapi/blocks-react-renderer": "^1.0.0",
+    "axios": "^1.6.7",
     "classnames": "^2.5.1",
     "next": "14.1.0",
+    "query-string": "^8.2.0",
     "react": "^18",
     "react-dom": "^18"
   },

@@ -1,19 +1,35 @@
-import { Oswald } from 'next/font/google';
+import { Mulish, Oswald } from 'next/font/google';
 
 import { Footer, Header } from '@/components';
-import Ins from '@/components/Ins';
 
 import '@/assets/stylesheets/globals.css';
+import { Metadata } from 'next';
 
-const inter = Oswald({ subsets: ['latin'], weight: ['400', '500', '600', '700'] });
+const oswald = Oswald({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
+const mulish = Mulish({
+  subsets: ['latin'],
+  variable: '--font-body',
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
 
-export default function RootLayout({
+export const metadata: Metadata = {
+  title: 'Roots and Blooms',
+  description: 'Flower shop beautifull!',
+};
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className={`${oswald.variable} ${mulish.variable}`}>
       <head>
         <script
           async
@@ -21,13 +37,12 @@ export default function RootLayout({
           crossOrigin='anonymous'
         />
       </head>
-      <body className={inter.className}>
+      <body>
         <div className='min-h-screen flex flex-col'>
           <Header />
-          <div className='py-10 my-auto'>{children}</div>
+          <div className='my-auto'>{children}</div>
           <Footer />
         </div>
-        <Ins />
       </body>
     </html>
   );

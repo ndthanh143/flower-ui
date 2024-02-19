@@ -11,13 +11,13 @@ export function IconButton({ startIcon, endIcon, children, className }: PropsWit
   return (
     <button
       className={cx(
-        'text-black uppercase hover:opacity-70 active:opacity-80 duration-75 flex gap-4 items-center w-full',
+        'group text-black uppercase hover:opacity-70 active:opacity-80 duration-75 flex gap-4 items-center',
         className,
       )}
     >
       {startIcon}
       <div className='flex-1'>{children}</div>
-      {endIcon}
+      <span className='group-hover:translate-x-2 transition-all duration-200'>{endIcon}</span>
     </button>
   );
 }
