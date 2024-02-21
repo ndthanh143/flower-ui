@@ -4,7 +4,6 @@ import Image from 'next/image';
 
 import bannerHome from '@/assets/images/home-pages/banner.webp';
 import { categoryService, productService } from '@/services';
-import { AngleRightIcon } from '@/assets/images/icons';
 
 export default async function Home() {
   const products = await productService.getAll();
@@ -15,7 +14,7 @@ export default async function Home() {
     <div className='flex flex-col gap-[80px] py-10'>
       <div className='container'>
         {categories.data.map((category) => (
-          <div className='flex flex-col gap-10'>
+          <div className='flex flex-col gap-10' key={category.id}>
             <div className='flex flex-col items-center gap-4'>
               <h2 className='uppercase font-[400] text-xl text-center'>{category.attributes.name}</h2>
               <span className='block w-12 h-1 rounded-lg bg-yellow-400' />
