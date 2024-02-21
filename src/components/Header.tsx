@@ -13,7 +13,7 @@ export function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 200);
       setPrevScrollPos(currentScrollPos);
     };
 

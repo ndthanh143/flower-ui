@@ -9,6 +9,7 @@ export type Blog = {
   description: string;
   thumbnail: { data: ImageData };
   metaTitle: string;
+  metaDescription: string;
   metaKeyword: string;
   content: BlocksContent;
   slug: string;

@@ -8,8 +8,6 @@ import { blogService } from '@/services/blog';
 export default function BlogsPage() {
   const [blogs, setBlogs] = useState<GetBlogsResponse>();
 
-  console.log(blogs);
-
   useEffect(() => {
     const fetchBlogs = async () => {
       return blogService.getBlogs();
