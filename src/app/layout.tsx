@@ -1,9 +1,9 @@
+import { Metadata } from 'next';
 import { Mulish, Oswald } from 'next/font/google';
 
 import { Footer, Header } from '@/components';
 
 import '@/assets/stylesheets/globals.css';
-import { Metadata } from 'next';
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -19,8 +19,9 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: 'Roots and Blooms',
-  description: 'Flower shop beautifull!',
+  title: 'The Sunny Flower: Hoa Tươi Tươi Mỗi Ngày - Mua Hoa Trực Tuyến Ngay Hôm Nay',
+  description:
+    'Khám phá vẻ đẹp tươi mới mỗi ngày với The Sunny Flower. Chúng tôi cung cấp các loại hoa tươi tinh khiết, từ hoa cắt cành cho đến bó hoa sắp xếp tinh tế. Mua hoa trực tuyến và làm cho mọi dịp trở nên đặc biệt hơn ngay hôm nay!!',
 };
 
 export default async function RootLayout({

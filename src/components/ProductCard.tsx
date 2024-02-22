@@ -12,19 +12,19 @@ export function ProductCard({ data }: IProductCardProps) {
     <Link href={`/p/${data.slug}`}>
       <div className='flex flex-col gap-4 relative'>
         <div className='w-full h-[40rem] cursor-pointer overflow-hidden'>
-          {/* <Image
+          <Image
             src={convertImageUrl(data.images.data?.[0], 'medium') || ''}
             alt={data.name}
             width={0}
             height={0}
             sizes='100vw'
             className='w-full h-full hover:scale-110 duration-500'
-          /> */}
+          />
         </div>
         <div className='text-center'>
           <p className='uppercase text-base mb-2 hover:opacity-60 transition-opacity duration-150'>{data.name}</p>
           <p className='text-base hover:opacity-60 transition-opacity duration-150'>
-            {Number(data.price).toLocaleString('vi')}VNĐ
+            {Number(data.price).toLocaleString('vi')} VNĐ
           </p>
         </div>
         {data.quantity === 0 && (
