@@ -3,6 +3,7 @@ import { Mulish, Oswald } from 'next/font/google';
 
 import { Footer, Header } from '@/components';
 
+import 'react-loading-skeleton/dist/skeleton.css';
 import '@/assets/stylesheets/globals.css';
 
 const oswald = Oswald({
@@ -23,6 +24,8 @@ export const metadata: Metadata = {
   description:
     'Khám phá vẻ đẹp tươi mới mỗi ngày với The Sunny Flower. Chúng tôi cung cấp các loại hoa tươi tinh khiết, từ hoa cắt cành cho đến bó hoa sắp xếp tinh tế. Mua hoa trực tuyến và làm cho mọi dịp trở nên đặc biệt hơn ngay hôm nay!!',
 };
+
+export const dynamic = 'force-dynamic';
 
 export default async function RootLayout({
   children,

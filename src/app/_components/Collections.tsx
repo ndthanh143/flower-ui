@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+import Link from 'next/link';
+
+>>>>>>> Stashed changes
 import { AngleRightIcon } from '@/assets/images/icons';
 import { IconButton, ProductCard } from '@/components';
 import { productService } from '@/services';
@@ -7,7 +12,11 @@ interface ICollectionsProps {
 }
 
 export async function Collections({ categorySlug }: ICollectionsProps) {
+<<<<<<< Updated upstream
   const products = await productService.getAll({ categorySlug, page: 1, pageSize: 5 });
+=======
+  const products = await productService.getAll({ categorySlug, page: 1, pageSize: 4 });
+>>>>>>> Stashed changes
 
   return (
     <>
@@ -18,9 +27,19 @@ export async function Collections({ categorySlug }: ICollectionsProps) {
           </div>
         ))}
       </div>
+<<<<<<< Updated upstream
       <IconButton className='w-fit text-[1.6rem] mx-auto' endIcon={<AngleRightIcon width={12} height={12} />}>
         <h2>Xem tất cả</h2>
       </IconButton>
+=======
+      {products.meta.pagination.pageCount > 1 && (
+        <Link href={`/collections/${categorySlug}`}>
+          <IconButton className='w-fit text-[1.6rem] mx-auto' endIcon={<AngleRightIcon width={12} height={12} />}>
+            <h2>Xem tất cả</h2>
+          </IconButton>
+        </Link>
+      )}
+>>>>>>> Stashed changes
     </>
   );
 }

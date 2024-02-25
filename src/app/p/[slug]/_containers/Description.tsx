@@ -12,12 +12,11 @@ export function Description({ data }: IDescriptionProps) {
         <p className='text-base leading-[2.8rem]'>{data.description}</p>
         <div>
           <p className='text-base leading-[2.8rem]'>
-            <b>Long distance Shipping:</b>{' '}
-            {data.isLongDistanceShipping ? 'Available for this item' : 'Not Available for this item'}
+            <b>Vận chuyển toàn quốc:</b> {data.isLongDistanceShipping ? 'Khả dụng' : 'Không khả dụng'}
           </p>
           {data.delivery && (
             <div className='flex flex-col gap-4'>
-              <p className='text-base leading-[2.8rem] font-bold'>Local Delivery:</p>
+              <p className='text-base leading-[2.8rem] font-bold'>Vận chuyển khu vực:</p>
               <div className='text-base leading-[2.8rem] flex flex-col gap-2'>
                 <BlockRendererClient content={data.delivery} />
               </div>
@@ -26,7 +25,7 @@ export function Description({ data }: IDescriptionProps) {
         </div>
         {data.details && (
           <div className='flex flex-col gap-4'>
-            <p className='text-base leading-[2.8rem] font-bold'>Details:</p>
+            <p className='text-base leading-[2.8rem] font-bold'>Mô tả chi tiết:</p>
             <div className='text-base leading-[2.8rem] flex flex-col gap-2'>
               <BlockRendererClient content={data.details} />
             </div>

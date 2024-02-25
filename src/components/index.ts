@@ -9,3 +9,6 @@ export * from './QuantitySelection';
 export * from './BlockRendererClient';
 export * from './RelativeProductCard';
 export * from './NavHeader';
+export * from './NewsLetter';
+export * from './HeadingCustom';
+export * from './Modal';

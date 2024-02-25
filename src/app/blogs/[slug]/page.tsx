@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
-import { BlockRendererClient } from '@/components';
 import { configs } from '@/configs';
 import { blogService } from '@/services';
 import { convertImageUrl } from '@/utils';
+import { BlockRendererClient } from '@/components';
 
 interface IBlogDetailPageProps {
   params: {

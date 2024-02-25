@@ -7,6 +7,10 @@ html {
   font-family: var(--font-body);
 }
 
+*:focus {
+  outline: none;
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
