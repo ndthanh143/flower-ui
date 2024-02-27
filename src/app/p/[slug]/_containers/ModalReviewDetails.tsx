@@ -1,5 +1,8 @@
+'use client';
+
 import { CloseIcon } from '@/assets/images/icons/CloseIcon';
 import { Modal, Rating } from '@/components';
+import { useClickOutside } from '@/hooks';
 import { Review } from '@/services/review/types';
 import { convertImageUrl } from '@/utils';
 import { format } from 'date-fns';
@@ -11,8 +14,9 @@ interface IModalReviewDetailsProps {
 }
 
 export function ModalReviewDetails({ data, onClose }: IModalReviewDetailsProps) {
+  const ref = useClickOutside(onClose);
   return (
-    <Modal>
+    <Modal ref={ref}>
       <div className='w-full h-full flex flex-col md:flex-row relative'>
         <div
           className='w-[20px] h-[20px] cursor-pointer absolute top-4 left-4 hover:bg-[rgba(0,0,0,0.4)]'

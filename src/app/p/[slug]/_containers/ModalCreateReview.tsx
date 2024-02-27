@@ -3,6 +3,7 @@
 import { ArrowRightIcon, ImageIcon } from '@/assets/images/icons';
 import { CloseIcon } from '@/assets/images/icons/CloseIcon';
 import { Button, IconButton, Modal, Rating } from '@/components';
+import { useClickOutside } from '@/hooks';
 import { uploadService } from '@/services/upload';
 import { yupResolver } from '@hookform/resolvers/yup';
 import cx from 'classnames';
@@ -197,6 +198,8 @@ const schema = object({
 export function ModalCreateReview({ onSubmit, onClose }: IModalCreateReviewProps) {
   const [step, setStep] = useState(0);
 
+  const ref = useClickOutside(onClose);
+
   const {
     register,
     formState: { errors },
@@ -238,7 +241,7 @@ export function ModalCreateReview({ onSubmit, onClose }: IModalCreateReviewProps
   }, [watch('rate')]);
 
   return (
-    <Modal>
+    <Modal ref={ref}>
       <form onSubmit={handleSubmit(onSubmitHandler)} className='h-full'>
         <div className='p-8 h-full flex flex-col'>
           <div className='w-[20px] h-[20px] cursor-pointer' onClick={onClose}>
