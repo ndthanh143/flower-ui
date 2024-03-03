@@ -25,7 +25,7 @@ export function Collections({ categorySlug }: ICollectionsProps) {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [fetchProducts]);
 
   return (
     <div className='grid grid-cols-3 gap-[120px]'>

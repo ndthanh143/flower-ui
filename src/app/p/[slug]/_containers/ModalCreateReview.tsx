@@ -82,7 +82,7 @@ const StepTwo = ({ setValue, watch }: { setValue: SetValueType; watch: WatchType
       <div className='container max-w-xl flex flex-col gap-8'>
         <div>
           <p className='text-2xl font-[700] text-center'>Show it off</p>
-          <p className='text-base text-center'>We'd love to see it in action!</p>
+          <p className='text-base text-center'>We&apos;d love to see it in action!</p>
         </div>
         {previewUrl && (
           <div className='p-4 border rounded-2xl w-full h-[200px] relative'>
@@ -210,10 +210,10 @@ export function ModalCreateReview({ onSubmit, onClose }: IModalCreateReviewProps
   } = useForm({ resolver: yupResolver(schema) });
 
   const listContentStep = [
-    <StepOne setValue={setValue} watch={watch} />,
-    <StepTwo setValue={setValue} watch={watch} />,
-    <StepThree setValue={setValue} />,
-    <StepFour register={register} errors={errors} />,
+    <StepOne setValue={setValue} watch={watch} key={1} />,
+    <StepTwo setValue={setValue} watch={watch} key={2} />,
+    <StepThree setValue={setValue} key={3} />,
+    <StepFour register={register} errors={errors} key={4} />,
   ];
 
   const handlePrev = () => {

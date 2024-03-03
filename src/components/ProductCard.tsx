@@ -24,11 +24,7 @@ export function ProductCard({ data }: IProductCardProps) {
         <div className='text-center'>
           <p className='uppercase text-base mb-2 hover:opacity-60 transition-opacity duration-150'>{data.name}</p>
           <p className='text-base hover:opacity-60 transition-opacity duration-150'>
-<<<<<<< Updated upstream
-            {Number(data.price).toLocaleString('vi')} VNĐ
-=======
             {Number(data.price).toLocaleString('vi')}đ
->>>>>>> Stashed changes
           </p>
         </div>
         {data.quantity === 0 && (
