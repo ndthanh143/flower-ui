@@ -4,6 +4,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'therootsandblooms.com' },
       { protocol: 'https', hostname: 'flower-server-9eeb.onrender.com' },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
       { protocol: 'http', hostname: '127.0.0.1' },
     ],
   },
