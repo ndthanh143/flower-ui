@@ -9,5 +9,5 @@ export const parseQueryString = (query: Record<string, any>): string => {
 
 export const convertImageUrl = (data: ImageData, type: ImageFormat) => {
   const url = data.attributes.formats?.[type]?.url || data.attributes.url;
-  return `${configs.imgUrl}${url}`;
+  return `${url}`;
 };
