@@ -1,2 +1,2 @@
 export * from './Collections';
-export * from './FacebookChatBot';
+export * from './FacebookChatbot';
