@@ -9,7 +9,7 @@ interface ICollectionsProps {
 }
 
 export async function Collections({ categorySlug }: ICollectionsProps) {
-  const products = await productService.getAll({ categorySlug, page: 1, pageSize: 4 });
+  const products = await productService.getAll({ categorySlug, page: 1, pageSize: 8 });
 
   return (
     <>

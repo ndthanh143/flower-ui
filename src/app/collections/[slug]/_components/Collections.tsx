@@ -17,18 +17,18 @@ export function Collections({ categorySlug }: ICollectionsProps) {
   const [isLoading, setLoading] = useState<boolean>(false);
   const [maxPage, setMaxPage] = useState<number>();
 
-  const fetchProducts = async () => {
-    setLoading(true);
-    const data = await productService.getAll({ categorySlug, page, pageSize: 3 });
-    setProducts((prev) => [...(prev || []), ...data.data]);
-    setMaxPage(data.meta.pagination.pageCount);
-  };
-
   useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      const data = await productService.getAll({ categorySlug, page, pageSize: 8 });
+      setProducts((prev) => [...(prev || []), ...data.data]);
+      setMaxPage(data.meta.pagination.pageCount);
+    };
+
     fetchProducts().finally(() => {
       setLoading(false);
     });
-  }, [fetchProducts]);
+  }, []);
 
   return (
     <div className='grid grid-cols-3 gap-[120px]'>

@@ -11,7 +11,7 @@ export function ProductCard({ data }: IProductCardProps) {
   return (
     <Link href={`/p/${data.slug}`}>
       <div className='flex flex-col gap-4 relative'>
-        <div className='w-full h-[40rem] cursor-pointer overflow-hidden'>
+        <div className='w-full h-[40rem] cursor-pointer overflow-hidden rounded-xl'>
           <Image
             src={convertImageUrl(data.images.data?.[0], 'medium') || ''}
             alt={data.name}
@@ -22,8 +22,10 @@ export function ProductCard({ data }: IProductCardProps) {
           />
         </div>
         <div className='text-center'>
-          <p className='uppercase text-base mb-2 hover:opacity-60 transition-opacity duration-150'>{data.name}</p>
-          <p className='text-base hover:opacity-60 transition-opacity duration-150'>
+          <p className='uppercse text-lg mb-2 hover:opacity-60 transition-opacity duration-150 font-semibold'>
+            {data.name}
+          </p>
+          <p className='text-base hover:opacity-60 transition-opacity duration-150 text-[#f4835a]'>
             {Number(data.price).toLocaleString('vi')}đ
           </p>
         </div>

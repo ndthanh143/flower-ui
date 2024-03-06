@@ -5,6 +5,7 @@ import { Footer, Header } from '@/components';
 
 import 'react-loading-skeleton/dist/skeleton.css';
 import '@/assets/stylesheets/globals.css';
+import { FacebookChatbot } from './_components';
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -42,6 +43,7 @@ export default async function RootLayout({
         />
       </head>
       <body>
+        <FacebookChatbot />
         <div className='min-h-screen flex flex-col'>
           <Header />
           <div className='my-auto'>{children}</div>
