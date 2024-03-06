@@ -12,19 +12,22 @@ interface ICollectionsProps {
 }
 
 export function Collections({ categorySlug }: ICollectionsProps) {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(1);
   const [products, setProducts] = useState<GetProductsResponse['data']>();
+  const [isLoading, setLoading] = useState<boolean>(false);
+  const [maxPage, setMaxPage] = useState<number>();
 
   const fetchProducts = async () => {
+    setLoading(true);
     const data = await productService.getAll({ categorySlug, page, pageSize: 3 });
     setProducts((prev) => [...(prev || []), ...data.data]);
-    setPage((prev) => prev + 1);
+    setMaxPage(data.meta.pagination.pageCount);
   };
 
-  const isLoading = useLoadMoreOnScroll(fetchProducts);
-
   useEffect(() => {
-    fetchProducts();
+    fetchProducts().finally(() => {
+      setLoading(false);
+    });
   }, [fetchProducts]);
 
   return (
