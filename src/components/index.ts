@@ -12,3 +12,4 @@ export * from './NavHeader';
 export * from './NewsLetter';
 export * from './HeadingCustom';
 export * from './Modal';
+export * from './Drawer';

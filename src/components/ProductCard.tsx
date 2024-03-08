@@ -11,14 +11,14 @@ export function ProductCard({ data }: IProductCardProps) {
   return (
     <Link href={`/p/${data.slug}`}>
       <div className='flex flex-col gap-4 relative'>
-        <div className='w-full h-[40rem] cursor-pointer overflow-hidden rounded-xl'>
+        <div className='w-full h-[20rem] md:h-[25rem] lg:h-[30rem] xl:h-[40rem] cursor-pointer overflow-hidden rounded-xl'>
           <Image
             src={convertImageUrl(data.images.data?.[0], 'medium') || ''}
             alt={data.name}
             width={0}
             height={0}
             sizes='100vw'
-            className='w-full h-full hover:scale-110 duration-500'
+            className='w-full h-full hover:scale-110 duration-500 object-cover'
           />
         </div>
         <div className='text-center'>

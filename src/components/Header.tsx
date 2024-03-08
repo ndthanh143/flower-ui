@@ -4,7 +4,7 @@ import cx from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { NavHeader } from '.';
+import { Drawer, NavHeader } from '.';
 
 export function Header() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -22,20 +22,25 @@ export function Header() {
   }, [prevScrollPos]);
 
   return (
-    <div
-      className={cx(
-        'bg-[#f7efec] flex flex-col gap-8 py-8 sticky w-screen z-10 top-0 transition-all ease-in-out duration-300',
-        { 'translate-y-0': visible, '-translate-y-full': !visible },
-      )}
-    >
-      <Link href='/'>
-        <div className='w-[30rem] cursor-pointer hover:opacity-80 mx-auto'>
-          <Image src='/logo.webp' alt='logo' width={0} height={0} sizes='100vw' className='w-full h-full' />
+    <>
+      <div
+        className={cx(
+          'bg-[#f7efec] flex flex-col gap-8 py-8 sticky w-screen z-10 top-0 transition-all ease-in-out duration-300',
+          { 'translate-y-0': visible, '-translate-y-full': !visible },
+        )}
+      >
+        <Link href='/'>
+          <div className='w-[30rem] cursor-pointer hover:opacity-80 mx-auto'>
+            <Image src='/logo.png' alt='logo' width={0} height={0} sizes='100vw' className='w-full h-full' />
+          </div>
+        </Link>
+        <div>
+          <NavHeader />
         </div>
-      </Link>
-      <div>
-        <NavHeader />
       </div>
-    </div>
+      <div className='block lg:hidden'>
+        <Drawer isOpen onClose={() => {}} />
+      </div>
+    </>
   );
 }

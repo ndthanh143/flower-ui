@@ -14,8 +14,8 @@ export function NavHeader() {
       href: `/collections/${category.attributes.slug}`,
     })) || [];
 
-  const navList = [
-    ...categoriesList,
+  const navList = [...categoriesList];
+  const defaultNavList = [
     { label: 'Liên hệ', href: '/contact' },
     { label: 'Đăng ký', href: '/' },
     { label: 'Blog', href: '/blogs' },
@@ -31,18 +31,32 @@ export function NavHeader() {
 
   return (
     categoriesList && (
-      <ul className='flex justify-center gap-8'>
-        {navList.map((nav) => (
-          <Link href={nav.href} key={nav.label}>
-            <li
-              key={nav.label}
-              className='text-base uppercase font-heading hover:text-yellow-500 transition-all duration-100 px-4 py-2'
-            >
-              {nav.label}
-            </li>
-          </Link>
-        ))}
-      </ul>
+      <div className='flex flex-col gap-3'>
+        <ul className='flex justify-center gap-8 overflow-x-scroll'>
+          {defaultNavList.map((nav) => (
+            <Link href={nav.href} key={nav.label}>
+              <li
+                key={nav.label}
+                className='text-base uppercase font-heading hover:text-yellow-500 transition-all duration-100 px-4 py-2'
+              >
+                {nav.label}
+              </li>
+            </Link>
+          ))}
+        </ul>
+        <ul className='flex justify-center gap-8 overflow-x-scroll'>
+          {navList.map((nav) => (
+            <Link href={nav.href} key={nav.label}>
+              <li
+                key={nav.label}
+                className='text-base uppercase font-heading hover:text-yellow-500 transition-all duration-100 px-4 py-2'
+              >
+                {nav.label}
+              </li>
+            </Link>
+          ))}
+        </ul>
+      </div>
     )
   );
 }

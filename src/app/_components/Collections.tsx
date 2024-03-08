@@ -13,7 +13,7 @@ export async function Collections({ categorySlug }: ICollectionsProps) {
 
   return (
     <>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[6rem]'>
+      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4  gap-[3rem] md:gap-[4rem] lg:gap-[5rem] xl:gap-[6rem]'>
         {products.data.map((product) => (
           <div className='col-span-1' key={product.id}>
             <ProductCard data={product.attributes} />

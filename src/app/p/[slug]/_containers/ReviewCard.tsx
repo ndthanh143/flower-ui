@@ -11,7 +11,7 @@ interface IReviewCardProps {
 export function ReviewCard({ data }: IReviewCardProps) {
   return (
     <div className='rounded-lg border overflow-hidden shadow-sm cursor-pointer h-full'>
-      <div className='w-full h-[300px]'>
+      <div className='w-full h-[150px] md:h-[200px] lg:h-[250px] xl:h-[300px]'>
         <Image
           src={(data.photo?.data && convertImageUrl(data.photo.data, 'medium')) || ''}
           alt='review-image'

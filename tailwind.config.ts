@@ -29,7 +29,16 @@ const config: Config = {
     animation: {
       'fade-in': 'fade-in .2s ease-in-out',
     },
-    container: { center: true },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '3rem', // Default padding value for container
+        sm: '3rem', // Padding value for small screens
+        md: '4rem',
+        lg: '4rem', // Padding value for large screens
+        xl: '5xl', // Padding value for large screens
+      },
+    },
   },
   plugins: [],
 };

@@ -10,8 +10,8 @@ interface IBlogCard {
 export function BlogCard({ data }: IBlogCard) {
   return (
     <Link href={`/blogs/${data.slug}`}>
-      <div className='group border border-gray-500 rounded'>
-        <div className='w-full h-[300px] overflow-hidden'>
+      <div className='group border border-gray-300 rounded-xl overflow-hidden'>
+        <div className='w-full h-[300px]'>
           <Image
             src={convertImageUrl(data.thumbnail.data, 'medium')}
             alt='thumbnail'

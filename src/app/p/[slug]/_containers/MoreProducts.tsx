@@ -19,7 +19,7 @@ export async function MoreProducts({ category, product }: IMoreProductProps) {
   return (
     <div className='flex flex-col gap-8'>
       <HeadingCustom isSecond title='Có thể bạn sẽ thích' />
-      <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-[160px]'>
+      <div className='grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-[3rem] md:gap-[4rem] lg:gap-[5rem] xl:gap-[6rem]'>
         {products.data.map((product) => (
           <div className='col-span-1' key={product.id}>
             <ProductCard data={product.attributes} />

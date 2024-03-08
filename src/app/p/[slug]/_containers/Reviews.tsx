@@ -34,8 +34,8 @@ export function Reviews({ product }: IReviewsProps) {
     reviews && (
       <>
         <div className='container max-w-[100rem]'>
-          <div className='flex justify-between mb-10'>
-            <div className='flex items-center gap-6'>
+          <div className='flex justify-center lg:justify-between align-center flex-col lg:flex-row gap-8 mb-10 w-full'>
+            <div className='flex justify-center lg:justify-start items-center gap-6 order-2 lg:order-1'>
               <Rating value={4} size='large' readonly />
               <p className='text-lg'>{reviews.meta.pagination.total} Reviews </p>
               <span className='w-[12px] h-[12px] rotate-90'>
@@ -43,16 +43,16 @@ export function Reviews({ product }: IReviewsProps) {
               </span>
             </div>
 
-            <div className='flex items-center gap-6'>
+            <div className='flex items-center gap-6 order-1 lg:order-2'>
               <button
-                className='text-base p-4 border rounded-lg hover:bg-gray-200 transition-all duration-100'
+                className='text-base p-4 border rounded-lg hover:bg-gray-200 transition-all duration-100 w-full lg:w-fit'
                 onClick={openCreateModal}
               >
                 Write a review
               </button>
             </div>
           </div>
-          <div className='grid grid-cols-3 gap-8'>
+          <div className='grid grid-cols-2 lg:grid-cols-3 gap-8'>
             {reviews.data.map((review) => (
               <div className='col-span-1' key={review.id} onClick={() => setSelectedReview(review.attributes)}>
                 <ReviewCard data={review.attributes} />
