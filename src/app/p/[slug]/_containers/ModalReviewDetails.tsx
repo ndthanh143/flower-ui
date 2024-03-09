@@ -24,7 +24,7 @@ export function ModalReviewDetails({ data, onClose }: IModalReviewDetailsProps) 
         >
           <CloseIcon width='100%' height='100%' />
         </div>
-        <div className='w-[60%]'>
+        <div className='w-full md:w-[60%] h-[70%] md:h-full'>
           <Image
             src={(data.photo?.data && convertImageUrl(data.photo?.data, 'large')) || ''}
             alt='image-product'

@@ -35,9 +35,11 @@ export function Reviews({ product }: IReviewsProps) {
       <>
         <div className='container max-w-[100rem]'>
           <div className='flex justify-center lg:justify-between align-center flex-col lg:flex-row gap-8 mb-10 w-full'>
-            <div className='flex justify-center lg:justify-start items-center gap-6 order-2 lg:order-1'>
-              <Rating value={4} size='large' readonly />
-              <p className='text-lg'>{reviews.meta.pagination.total} Reviews </p>
+            <div className='flex justify-between lg:justify-start items-center gap-6 order-2 lg:order-1'>
+              <div className='flex items-center gap-4'>
+                <Rating value={4} size='large' readonly />
+                <p className='text-lg'>{reviews.meta.pagination.total} Reviews </p>
+              </div>
               <span className='w-[12px] h-[12px] rotate-90'>
                 <AngleRightIcon />
               </span>

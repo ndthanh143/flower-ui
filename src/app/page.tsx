@@ -1,7 +1,7 @@
 import { Button, HeadingCustom } from '@/components';
 import Image from 'next/image';
 
-import bannerHome from '@/assets/images/home-pages/banner.webp';
+import bannerHome from '@/assets/images/home-page/banner.webp';
 import { categoryService } from '@/services';
 import { Collections } from './_components';
 

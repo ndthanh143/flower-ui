@@ -11,7 +11,9 @@ export const categoryService = {
   getBySlug: async (slug: string) => {
     const { data } = await axiosInstance.get<CategoriesResponse>('categories', {
       params: {
-        slug,
+        filters: {
+          slug,
+        },
       },
     });
 

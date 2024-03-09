@@ -4,8 +4,12 @@ import Link from 'next/link';
 import { categoryService } from '@/services';
 import { useEffect, useState } from 'react';
 import { CategoriesResponse } from '@/services/category/types';
+import cx from 'classnames';
+import { usePathname } from 'next/navigation';
 
 export function NavHeader() {
+  const pathname = usePathname();
+
   const [categories, setCategories] = useState<CategoriesResponse>();
 
   const categoriesList =
@@ -14,12 +18,12 @@ export function NavHeader() {
       href: `/collections/${category.attributes.slug}`,
     })) || [];
 
-  const navList = [...categoriesList];
   const defaultNavList = [
     { label: 'Liên hệ', href: '/contact' },
-    { label: 'Đăng ký', href: '/' },
-    { label: 'Blog', href: '/blogs' },
+    // { label: 'Đăng ký', href: '/' },
+    { label: 'Bài viết', href: '/blogs' },
   ];
+  const navList = [{ label: 'Trang chủ', href: '/' }, ...categoriesList, ...defaultNavList];
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -32,24 +36,30 @@ export function NavHeader() {
   return (
     categoriesList && (
       <div className='flex flex-col gap-3'>
-        <ul className='flex justify-center gap-8 overflow-x-scroll'>
+        {/* <ul className='flex justify-center gap-8 overflow-x-scroll'>
           {defaultNavList.map((nav) => (
             <Link href={nav.href} key={nav.label}>
               <li
                 key={nav.label}
-                className='text-base uppercase font-heading hover:text-yellow-500 transition-all duration-100 px-4 py-2'
+                className={cx(
+                  'text-base uppercase font-heading hover:text-yellow-500 transition-all duration-100 px-4 py-2',
+                  { 'text-yellow-500': pathname === nav.href },
+                )}
               >
                 {nav.label}
               </li>
             </Link>
           ))}
-        </ul>
+        </ul> */}
         <ul className='flex justify-center gap-8 overflow-x-scroll'>
           {navList.map((nav) => (
             <Link href={nav.href} key={nav.label}>
               <li
                 key={nav.label}
-                className='text-base uppercase font-heading hover:text-yellow-500 transition-all duration-100 px-4 py-2'
+                className={cx(
+                  'text-base uppercase font-heading hover:text-yellow-500 transition-all duration-100 px-4 py-2',
+                  { 'text-yellow-500': pathname === nav.href },
+                )}
               >
                 {nav.label}
               </li>
