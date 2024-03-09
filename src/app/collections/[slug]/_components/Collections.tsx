@@ -14,14 +14,12 @@ export function Collections({ categorySlug }: ICollectionsProps) {
   const [page, setPage] = useState<number>(1);
   const [products, setProducts] = useState<GetProductsResponse['data']>();
   const [isLoading, setLoading] = useState<boolean>(false);
-  const [maxPage, setMaxPage] = useState<number>();
 
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
-      const data = await productService.getAll({ categorySlug, page, pageSize: 8 });
-      setProducts((prev) => [...(prev || []), ...data.data]);
-      setMaxPage(data.meta.pagination.pageCount);
+      const data = await productService.getAll({ categorySlug });
+      setProducts(data.data);
     };
 
     fetchProducts().finally(() => {
