@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Mulish, Oswald } from 'next/font/google';
+import { Mulish, Oswald, Great_Vibes, Baskervville } from 'next/font/google';
 
 import { Footer, Header } from '@/components';
 
@@ -20,6 +20,20 @@ const mulish = Mulish({
   display: 'swap',
 });
 
+const greatVibes = Great_Vibes({
+  subsets: ['latin'],
+  variable: '--font-logo-sub',
+  weight: ['400'],
+  display: 'swap',
+});
+
+const baskervville = Baskervville({
+  subsets: ['latin'],
+  variable: '--font-logo-main',
+  weight: ['400'],
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: 'The Sunny Flower: Hoa Tươi Tươi Mỗi Ngày - Mua Hoa Trực Tuyến Ngay Hôm Nay',
   description:
@@ -34,7 +48,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className={`${oswald.variable} ${mulish.variable}`}>
+    <html lang='en' className={`${oswald.variable} ${mulish.variable} ${greatVibes.variable} ${baskervville.variable}`}>
       <head>
         <script
           async

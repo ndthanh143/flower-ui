@@ -1,6 +1,7 @@
 import { Button, QuantitySelection, Rating, RelativeProductCard } from '@/components';
 import { Product } from '@/services/product/types';
 import cx from 'classnames';
+import Link from 'next/link';
 
 interface IOptionProps {
   data: Product;
@@ -50,7 +51,9 @@ export function Option({ data }: IOptionProps) {
           ))}
         </div>
       </div>
-      <Button className='!py-4 !text-base'>Liên hệ đặt hàng</Button>
+      <Link href='https://zalo.me/84705740407' className='block w-full'>
+        <Button className='!py-4 !text-base'>Đặt hàng qua zalo</Button>
+      </Link>
     </div>
   );
 }

@@ -21,10 +21,10 @@ export function Footer() {
       <div className='w-full xl:w-1/3 flex flex-col items-center lg:items-start gap-8'>
         <h2 className='text-base uppercase font-bold'>Liên hệ</h2>
         <div className='flex flex-col items-center lg:items-start gap-6 text-base text-center lg:text-left w-full lg:w-fit'>
-          <Link href='mailto:example@gmail.com' className='w-full block'>
+          {/* <Link href='mailto:example@gmail.com' className='w-full block'>
             example@gmail.com
-          </Link>
-          <Link href='/' className='w-full block'>
+          </Link> */}
+          <Link href='https://zalo.me/84705740407' className='w-full block'>
             (+84) 705 740 407
           </Link>
           <p className=''>Số 38, Nguyễn Trãi, P. Thanh Bình, TP Biên Hoà, Đồng Nai (Chợ Biên Hoà)</p>

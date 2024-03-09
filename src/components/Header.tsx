@@ -31,12 +31,25 @@ export function Header() {
           { 'translate-y-0': visible, '-translate-y-full': !visible },
         )}
       >
-        <Link href='/' className='hidden lg:block w-fit hover:opacity-80 transition-all duration-200 mx-auto'>
+        <Link
+          href='/'
+          className='hidden lg:flex w-fit hover:opacity-80 transition-all duration-200 mx-auto flex-col gap-1'
+        >
           <div className='w-[4.5rem] cursor-pointer mx-auto'>
             <Image src='/logo2.png' alt='logo' width={0} height={0} sizes='100vw' className='w-full h-full' />
           </div>
-          <p className='text-xl text-[#69402B] text-center font-[400p'>Gift for your Life</p>
-          <h2 className='text-3xl text-[#69402B] text-center font-[800] tracking-widest'>The Sunny Flower</h2>
+          <p
+            className='text-xl text-[#69402B] text-center font-[400p tracking-wider'
+            style={{ fontFamily: 'var(--font-logo-sub)' }}
+          >
+            Gift for your Life
+          </p>
+          <p
+            className='text-2xl text-[#69402B] text-center tracking-widest'
+            style={{ fontFamily: 'var(--font-logo-main)' }}
+          >
+            THE SUNNY FLOWER
+          </p>
         </Link>
         <div className='hidden lg:block'>
           <NavHeader />
@@ -46,7 +59,9 @@ export function Header() {
             <MenuIcon width={30} height={30} />
           </div>
           <Link href='/'>
-            <h2 className='text-xl text-gray-700'>The Sunny Flower</h2>
+            <h2 className='text-xl text-gray-700' style={{ fontFamily: 'var(--font-logo-main)' }}>
+              The Sunny Flower
+            </h2>
           </Link>
           <Link href='/' className=''>
             <div className='w-[4.5rem] cursor-pointer hover:opacity-80 mx-auto'>

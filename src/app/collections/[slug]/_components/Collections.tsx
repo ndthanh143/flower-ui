@@ -1,11 +1,10 @@
 'use client';
 
 import { ProductCard } from '@/components';
-import { useLoadMoreOnScroll } from '@/hooks';
 import { productService } from '@/services';
 import { GetProductsResponse } from '@/services/product/types';
 import { useEffect, useState } from 'react';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import Skeleton from 'react-loading-skeleton';
 
 interface ICollectionsProps {
   categorySlug: string;
