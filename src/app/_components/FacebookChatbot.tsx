@@ -10,7 +10,7 @@ export function FacebookChatbot() {
       <Script strategy='lazyOnload'>
         {`
             var chatbox = document.getElementById('fb-customer-chat');
-            chatbox.setAttribute("page_id", "100087525100798");
+            chatbox.setAttribute("page_id", "106753262249257");
             chatbox.setAttribute("attribution", "biz_inbox");          
         `}
       </Script>
