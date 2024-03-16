@@ -28,7 +28,7 @@ export function Collections({ categorySlug }: ICollectionsProps) {
   }, []);
 
   return (
-    <div className='grid grid-cols-2 lg:grid-cols-3 gap-[3rem] md:gap-[4rem] lg:gap-[5rem] xl:gap-[6rem]'>
+    <div className='grid grid-cols-2 lg:grid-cols-3 gap-[2rem] md:gap-[2.5rem] lg:gap-[4rem] xl:gap-[6rem]'>
       {products?.map((product) => (
         <div className='col-span-1' key={product.id}>
           <ProductCard data={product.attributes} />

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import bannerHome from '@/assets/images/home-page/banner.webp';
 import { categoryService } from '@/services';
 import { Collections } from './_components';
+import Link from 'next/link';
 
 function Banner() {
   return (
@@ -19,7 +20,9 @@ function Banner() {
         />
       </div>
       <div className='w-[3/5]'>
-        <Button className='uppercase mx-auto w-full'>Send flower subscription</Button>
+        <Link href='https://zalo.me/84705740407'>
+          <Button className='uppercase mx-auto w-full'>Liên hệ đặt hoa ngay</Button>
+        </Link>
       </div>
     </div>
   );

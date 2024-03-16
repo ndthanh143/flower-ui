@@ -62,6 +62,12 @@ export function NavHeader() {
                 )}
               >
                 {nav.label}
+                <span
+                  className={cx('block h-[1px] rounded-lg bg-yellow-500 transition-all duration-300', {
+                    'w-full': pathname === nav.href,
+                    'w-0': pathname !== nav.href,
+                  })}
+                />
               </li>
             </Link>
           ))}

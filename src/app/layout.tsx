@@ -35,12 +35,26 @@ const baskervville = Baskervville({
 });
 
 export const metadata: Metadata = {
-  title: 'The Sunny Flower: Hoa Tươi Tươi Mỗi Ngày - Mua Hoa Trực Tuyến Ngay Hôm Nay',
+  title: 'Hoa tươi biên hoà đẹp - Giao tận nơi nhanh chóng | The Sunny Flower',
   description:
-    'Khám phá vẻ đẹp tươi mới mỗi ngày với The Sunny Flower. Chúng tôi cung cấp các loại hoa tươi tinh khiết, từ hoa cắt cành cho đến bó hoa sắp xếp tinh tế. Mua hoa trực tuyến và làm cho mọi dịp trở nên đặc biệt hơn ngay hôm nay!!',
+    'Miễn Phí Giao Hoa Nội Thành, Hoa Tươi Biên Hoà Đẹp Nhiều Mẫu Giao Nhanh Có VAT. Địa chỉ uy tín, chất lượng với đa dạng các loại hoa tươi, phù hợp với mọi nhu cầu của khách hàng. Cam kết cung cấp hoa tươi mới nhất, đẹp nhất với giá cả hợp lý nhất.',
+  openGraph: {
+    title: 'Hoa tươi biên hoà đẹp - Giao tận nơi nhanh chóng | The Sunny Flower',
+    description:
+      'Miễn Phí Giao Hoa Nội Thành, Hoa Tươi Biên Hoà Đẹp Nhiều Mẫu Giao Nhanh Có VAT. Địa chỉ uy tín, chất lượng với đa dạng các loại hoa tươi, phù hợp với mọi nhu cầu của khách hàng. Cam kết cung cấp hoa tươi mới nhất, đẹp nhất với giá cả hợp lý nhất.',
+    images: '/open-graph.jpg',
+    url: '/',
+  },
+  twitter: {
+    title: 'Hoa tươi biên hoà đẹp - Giao tận nơi nhanh chóng | The Sunny Flower',
+    description:
+      'Miễn Phí Giao Hoa Nội Thành, Hoa Tươi Biên Hoà Đẹp Nhiều Mẫu Giao Nhanh Có VAT. Địa chỉ uy tín, chất lượng với đa dạng các loại hoa tươi, phù hợp với mọi nhu cầu của khách hàng. Cam kết cung cấp hoa tươi mới nhất, đẹp nhất với giá cả hợp lý nhất.',
+    images: '/open-graph.jpg',
+  },
+  alternates: {
+    canonical: '/',
+  },
 };
-
-export const dynamic = 'force-dynamic';
 
 export default async function RootLayout({
   children,

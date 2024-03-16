@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SocialMediaIcon } from './SocialMediaIcon';
+import { AddressIcon, PhoneIcon } from '@/assets/images/icons';
 
 export function Footer() {
   return (
@@ -25,11 +26,24 @@ export function Footer() {
             example@gmail.com
           </Link> */}
           <Link href='https://zalo.me/84705740407' className='w-full block'>
-            (+84) 705 740 407
+            <div className='flex items-center gap-4'>
+              <div className='w-[20px] h-[20px]'>
+                <PhoneIcon />
+              </div>
+              <p>(+84) 705 740 407</p>
+            </div>
           </Link>
-          <p className=''>Số 38, Nguyễn Trãi, P. Thanh Bình, TP Biên Hoà, Đồng Nai (Chợ Biên Hoà)</p>
-          <div className='w-[40px] h-[40px]'>
-            <SocialMediaIcon link='https://www.facebook.com/profile.php?id=100090497948296' type='facebook' />
+          <div className='flex items-center gap-4'>
+            <div className='w-[20px] h-[20px]'>
+              <AddressIcon />
+            </div>
+            <p className=''>Số 38, Nguyễn Trãi, P. Thanh Bình, TP Biên Hoà, Đồng Nai (Chợ Biên Hoà)</p>
+          </div>
+          <div className='flex flex-col gap-1'>
+            <div className='w-[40px] h-[40px]'>
+              <SocialMediaIcon link='https://www.facebook.com/profile.php?id=100090497948296' type='facebook' />
+            </div>
+            <p className='font-bold'>The Sunny Flowers</p>
           </div>
         </div>
       </div>
