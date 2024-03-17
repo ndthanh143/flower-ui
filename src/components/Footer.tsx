@@ -26,20 +26,20 @@ export function Footer() {
             example@gmail.com
           </Link> */}
           <Link href='https://zalo.me/84705740407' className='w-full block'>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-center justify-center lg:justify-start gap-4'>
               <div className='w-[20px] h-[20px]'>
                 <PhoneIcon />
               </div>
               <p>(+84) 705 740 407</p>
             </div>
           </Link>
-          <div className='flex items-center gap-4'>
+          <div className='flex items-center justify-center lg:justify-start gap-4'>
             <div className='w-[20px] h-[20px]'>
               <AddressIcon />
             </div>
             <p className=''>Số 38, Nguyễn Trãi, P. Thanh Bình, TP Biên Hoà, Đồng Nai (Chợ Biên Hoà)</p>
           </div>
-          <div className='flex flex-col gap-1'>
+          <div className='flex items-center gap-4'>
             <div className='w-[40px] h-[40px]'>
               <SocialMediaIcon link='https://www.facebook.com/profile.php?id=100090497948296' type='facebook' />
             </div>

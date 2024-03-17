@@ -202,7 +202,7 @@ export function ModalCreateReview({ onSubmit, onClose }: IModalCreateReviewProps
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     setValue,
     watch,
     handleSubmit,
@@ -247,7 +247,14 @@ export function ModalCreateReview({ onSubmit, onClose }: IModalCreateReviewProps
           <div className='w-[20px] h-[20px] cursor-pointer' onClick={onClose}>
             <CloseIcon width='100%' height='100%' />
           </div>
-          <div className='flex flex-col gap-10 items-center flex-1 justify-center'>{listContentStep[step]}</div>
+          {listContentStep.map((item, index) => (
+            <div
+              className={cx('flex flex-col gap-10 items-center flex-1 justify-center', { hidden: step !== index })}
+              key={index}
+            >
+              {item}
+            </div>
+          ))}
           <div className='flex justify-between'>
             <IconButton
               startIcon={
@@ -272,12 +279,7 @@ export function ModalCreateReview({ onSubmit, onClose }: IModalCreateReviewProps
               </Button>
             )}
             {step === 3 && (
-              <Button
-                className={cx('!py-3 !text-lg !px-8')}
-                onClick={handleNext}
-                type='submit'
-                disabled={Boolean(errors)}
-              >
+              <Button className={cx('!py-3 !text-lg !px-8')} onClick={handleNext} type='submit' disabled={!isValid}>
                 Done
               </Button>
             )}

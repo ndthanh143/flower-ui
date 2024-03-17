@@ -80,32 +80,21 @@ export function Header() {
       >
         <Link
           href='/'
-          className='hidden lg:flex w-fit hover:opacity-80 transition-all duration-200 mx-auto gap-8 items-end'
+          className='hidden lg:flex w-fit hover:opacity-80 transition-all duration-200 mx-auto gap-8 items-center'
         >
-          <div className='w-[6rem] cursor-pointer mx-auto'>
-            <Image src='/logo2.png' alt='logo' width={0} height={0} sizes='100vw' className='w-full h-full' />
-          </div>
           <div className='flex flex-col'>
+            <div className='w-[6rem] cursor-pointer mx-auto'>
+              <Image src='/logo2.png' alt='logo' width={0} height={0} sizes='100vw' className='w-full h-full' />
+            </div>
             <p
               className='text-base text-[#69402B] text-left font-[400p tracking-wider'
               style={{ fontFamily: 'var(--font-logo-sub)' }}
             >
               Gift for your Life
             </p>
+          </div>
+          <div className='flex flex-col'>
             <Title type='desktop' />
-            {/* <p
-              className='text-2xl text-[#69402B] text-center tracking-widest'
-              style={{ fontFamily: 'var(--font-logo-main)' }}
-            >
-              THE SUNNY FLOWER
-              <span
-                ref={spanRef}
-                className={cx('block h-[2px] rounded-lg bg-[#69402B] transition-all duration-300', {
-                  'w-0': !isInView,
-                  'w-full': isInView,
-                })}
-              />
-            </p> */}
           </div>
         </Link>
         <div className='hidden lg:block'>
@@ -115,27 +104,13 @@ export function Header() {
           <div onClick={() => setOpenDrawer(true)}>
             <MenuIcon width={30} height={30} color='#69402B' />
           </div>
-          <Link href='/'>
-            <Title type='mobile' />
-            {/* <p
-              className='text-lg md:text-xl text-[#69402B] active:opacity-80 tracking-wider'
-              style={{ fontFamily: 'var(--font-logo-main)' }}
-            >
-              THE SUNNY FLOWER
-              <span
-                ref={spanRef}
-                className={cx('block h-[2px] rounded-lg bg-[#69402B] transition-all duration-300', {
-                  'w-0': !isInView,
-                  'w-full': isInView,
-                })}
-              />
-            </p> */}
-          </Link>
-          <Link href='/' className=''>
+          <Link href='/' className='flex items-center gap-4'>
             <div className='w-[4.5rem] cursor-pointer hover:opacity-80 active:opacity-80 mx-auto'>
               <Image src='/logo2.png' alt='logo' width={0} height={0} sizes='100vw' className='w-full h-full' />
             </div>
+            <Title type='mobile' />
           </Link>
+          <span />
         </div>
       </div>
       <div className='block lg:hidden'>

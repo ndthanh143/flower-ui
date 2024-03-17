@@ -10,6 +10,14 @@ export function Description({ data }: IDescriptionProps) {
     <div>
       <div className='flex flex-col gap-10'>
         <p className='text-base leading-[2.8rem]'>{data.description}</p>
+        {data.details && (
+          <div className='flex flex-col gap-4'>
+            <p className='text-base leading-[2.8rem] font-bold'>Mô tả chi tiết:</p>
+            <div className='text-base leading-[2.8rem] flex flex-col gap-2'>
+              <BlockRendererClient content={data.details} />
+            </div>
+          </div>
+        )}
         <div>
           <p className='text-base leading-[2.8rem]'>
             <b>Vận chuyển toàn quốc:</b> {data.isLongDistanceShipping ? 'Khả dụng' : 'Không khả dụng'}
@@ -23,14 +31,6 @@ export function Description({ data }: IDescriptionProps) {
             </div>
           )}
         </div>
-        {data.details && (
-          <div className='flex flex-col gap-4'>
-            <p className='text-base leading-[2.8rem] font-bold'>Mô tả chi tiết:</p>
-            <div className='text-base leading-[2.8rem] flex flex-col gap-2'>
-              <BlockRendererClient content={data.details} />
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
