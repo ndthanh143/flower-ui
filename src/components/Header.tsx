@@ -101,9 +101,6 @@ export function Header() {
           <NavHeader />
         </div>
         <div className='flex lg:hidden items-center justify-between container'>
-          <div onClick={() => setOpenDrawer(true)}>
-            <MenuIcon width={30} height={30} color='#69402B' />
-          </div>
           <Link href='/' className='flex items-center gap-4'>
             <div className='w-[4.5rem] cursor-pointer hover:opacity-80 active:opacity-80 mx-auto'>
               <Image src='/logo2.png' alt='logo' width={0} height={0} sizes='100vw' className='w-full h-full' />
@@ -111,6 +108,9 @@ export function Header() {
             <Title type='mobile' />
           </Link>
           <span />
+          <div onClick={() => setOpenDrawer(true)}>
+            <MenuIcon width={30} height={30} color='#69402B' />
+          </div>
         </div>
       </div>
       <div className='block lg:hidden'>
