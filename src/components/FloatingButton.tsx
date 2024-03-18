@@ -8,7 +8,7 @@ import Image from 'next/image';
 export function FloatingButton() {
   return (
     <>
-      <div className='fixed bottom-10 left-8'>
+      <div className='fixed bottom-[100px] right-8 z-10'>
         <div className='flex flex-col gap-4 justify-center items-center'>
           <Link
             href='tel:0705740407'
