@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import { ContactForm } from './_components';
-
 import storeImage from '@/assets/images/contact-page/store.jpg';
 import storeImage1 from '@/assets/images/contact-page/store-1.jpg';
 import storeImage2 from '@/assets/images/contact-page/store-2.jpg';
+
+import { SliderImage } from './_components';
 
 export default function ContactPage() {
   return (
@@ -24,7 +24,12 @@ export default function ContactPage() {
               đẹp nhất tới bạn !
             </p>
           </div>
-          <div className='flex justify-center gap-8'>
+
+          <div className='block lg:hidden'>
+            <SliderImage />
+          </div>
+
+          <div className='hidden lg:flex justify-center gap-8'>
             <div className='hidden lg:block w-[300px] h-[400px]'>
               <Image src={storeImage1} alt='store-image' width={0} height={0} sizes='100vw' className='w-auto h-full' />
             </div>

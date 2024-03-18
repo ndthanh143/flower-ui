@@ -25,18 +25,18 @@ export function Footer() {
           {/* <Link href='mailto:example@gmail.com' className='w-full block'>
             example@gmail.com
           </Link> */}
-          <Link href='https://zalo.me/84705740407' className='w-full block'>
+          <Link href='tel:0705740407' className='w-full block'>
             <div className='flex items-center justify-center lg:justify-start gap-4'>
-              <div className='w-[20px] h-[20px]'>
+              {/* <div className='w-[20px] h-[20px]'>
                 <PhoneIcon />
-              </div>
+              </div> */}
               <p>(+84) 705 740 407</p>
             </div>
           </Link>
           <div className='flex items-center justify-center lg:justify-start gap-4'>
-            <div className='w-[20px] h-[20px]'>
+            {/* <div className='w-[20px] h-[20px]'>
               <AddressIcon />
-            </div>
+            </div> */}
             <p className=''>Số 38, Nguyễn Trãi, P. Thanh Bình, TP Biên Hoà, Đồng Nai (Chợ Biên Hoà)</p>
           </div>
           <div className='flex items-center gap-4'>

@@ -1,8 +1,10 @@
 import { Metadata } from 'next';
 import { Mulish, Oswald, Great_Vibes, Baskervville } from 'next/font/google';
 
-import { Footer, Header } from '@/components';
+import { FloatingButton, Footer, Header } from '@/components';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import '@/assets/stylesheets/globals.css';
 import { FacebookChatbot } from './_components';
@@ -72,6 +74,7 @@ export default async function RootLayout({
       </head>
       <body>
         <FacebookChatbot />
+        <FloatingButton />
         <div className='min-h-screen flex flex-col'>
           <Header />
           <div className='my-auto'>{children}</div>

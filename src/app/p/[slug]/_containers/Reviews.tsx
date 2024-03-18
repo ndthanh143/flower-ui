@@ -38,7 +38,7 @@ export function Reviews({ product }: IReviewsProps) {
             <div className='flex justify-between lg:justify-start items-center gap-6 order-2 lg:order-1'>
               <div className='flex items-center gap-4'>
                 <Rating value={4} size='large' readonly />
-                <p className='text-lg'>{reviews.meta.pagination.total} Reviews </p>
+                <p className='text-lg'>{reviews.meta.pagination.total} Đánh giá </p>
               </div>
               <span className='w-[12px] h-[12px] rotate-90'>
                 <AngleRightIcon />
@@ -50,7 +50,7 @@ export function Reviews({ product }: IReviewsProps) {
                 className='text-base p-4 border rounded-lg hover:bg-gray-200 transition-all duration-100 w-full lg:w-fit'
                 onClick={openCreateModal}
               >
-                Write a review
+                Để lại đánh giá
               </button>
             </div>
           </div>
