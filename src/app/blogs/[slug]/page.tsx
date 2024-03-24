@@ -4,6 +4,7 @@ import { configs } from '@/configs';
 import { blogService } from '@/services';
 import { convertImageUrl } from '@/utils';
 import { BlockRendererClient } from '@/components';
+import Image from 'next/image';
 
 interface IBlogDetailPageProps {
   params: {
@@ -49,9 +50,23 @@ export default async function BlogDetailPage({ params }: IBlogDetailPageProps) {
   const data = await blogService.getBlogDetail(slug);
 
   return (
-    <div className='container py-[0]'>
-      <h1 className='text-2xl leading-[80px]'>{data.title}</h1>
-      <div className='text-base'>
+    <div className='container py-[20px]'>
+      <h1 className='text-xl leading-[36px] md:text-2xl md:leading-[48px] lg:text-3xl lg:leading-[60px] xl:text-4xl xl:leading-[80px]'>
+        {data.title}
+      </h1>
+      <div className='flex my-8'>
+        <div className='h-[400px] w-auto mx-auto rounded-lg overflow-hidden'>
+          <Image
+            src={convertImageUrl(data.thumbnail.data, 'large')}
+            alt={data.title}
+            width={0}
+            height={0}
+            sizes='100vw'
+            className='w-auto h-full'
+          />
+        </div>
+      </div>
+      <div className='text-base py-4'>
         <BlockRendererClient content={data.content} />
       </div>
     </div>

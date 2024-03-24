@@ -1,12 +1,47 @@
-import { HeadingCustom, Modal, NewsLetter, SlideShow } from '@/components';
+import { HeadingCustom, SlideShow } from '@/components';
 import { Description, Option, MoreProducts } from './_containers';
 import { productService } from '@/services';
 import { convertImageUrl } from '@/utils';
 import { Reviews } from './_containers/Reviews';
-import Slider from 'react-slick';
-import Image from 'next/image';
+import { Metadata } from 'next';
+import { configs } from '@/configs';
 
-export default async function ProductDetail({ params }: { params: { slug: string } }) {
+interface IProductDetailProps {
+  params: { slug: string };
+}
+
+export async function generateMetadata({ params }: IProductDetailProps): Promise<Metadata> {
+  const { slug = '' } = params;
+
+  const { attributes: data } = await productService.getBySlug(slug);
+
+  return data
+    ? {
+        title: `${data.name} | The Sunny Flower`,
+        description: data.description,
+        openGraph: {
+          type: 'article',
+          url: `${configs.uriClient}/p/${data.slug}`,
+          title: data.name,
+          description: data.description,
+          siteName: configs.uriClient,
+          images: [
+            {
+              url: convertImageUrl(data.images.data?.[0], 'thumbnail'),
+              width: 850,
+              height: 650,
+              alt: data.name,
+            },
+          ],
+        },
+        keywords: data.name,
+        alternates: {
+          canonical: `${configs.uriClient}/p/${data.slug}`,
+        },
+      }
+    : {};
+}
+export default async function ProductDetail({ params }: IProductDetailProps) {
   const slug = params?.slug;
 
   const product = await productService.getBySlug(slug);

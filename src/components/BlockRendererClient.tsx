@@ -17,19 +17,19 @@ export function BlockRendererClient({ content }: { readonly content: BlocksConte
         heading: ({ children, level }) => {
           switch (level) {
             case 1:
-              return <h1>{children}</h1>;
+              return <h1 className='text-4xl'>{children}</h1>;
             case 2:
-              return <h2>{children}</h2>;
+              return <h2 className='text-lg lg:text-xl xl:text-xl mb-4'>{children}</h2>;
             case 3:
-              return <h3>{children}</h3>;
+              return <h3 className='text-lg'>{children}</h3>;
             case 4:
-              return <h4>{children}</h4>;
+              return <h4 className='text-lg'>{children}</h4>;
             case 5:
-              return <h5>{children}</h5>;
+              return <h5 className='text-lg'>{children}</h5>;
             case 6:
-              return <h6>{children}</h6>;
+              return <h6 className='text-lg'>{children}</h6>;
             default:
-              return <h1>{children}</h1>;
+              return <h1 className='text-lg'>{children}</h1>;
           }
         },
         list: ({ children }) => {
@@ -40,6 +40,9 @@ export function BlockRendererClient({ content }: { readonly content: BlocksConte
             {children}
           </Link>
         ),
+        paragraph: ({ children }) => {
+          return <p className='text-base py-1'>{children}</p>;
+        },
       }}
     />
   );

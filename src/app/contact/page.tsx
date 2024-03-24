@@ -3,7 +3,7 @@ import storeImage from '@/assets/images/contact-page/store.jpg';
 import storeImage1 from '@/assets/images/contact-page/store-1.jpg';
 import storeImage2 from '@/assets/images/contact-page/store-2.jpg';
 
-import { GoogleMapAdress, SliderImage } from './_components';
+import { GoogleMapAddress, SliderImage } from './_components';
 
 export default function ContactPage() {
   return (
@@ -42,7 +42,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-      <GoogleMapAdress />
+      <GoogleMapAddress />
     </div>
   );
 }

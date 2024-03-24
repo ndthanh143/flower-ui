@@ -17,7 +17,7 @@ export async function Option({ data }: IOptionProps) {
 
   return (
     <div className='border p-10 flex flex-col gap-10'>
-      <p className='text-xl'>{Number(data.price).toLocaleString('vi')}đ</p>
+      <p className='text-xl'>{Number(data.price).toLocaleString('en-US')} VNĐ</p>
       <div className='flex gap-4 items-center'>
         <Rating value={avgRating} readonly />
         <span className='text-base'>({totalReviewAmounts})</span>
