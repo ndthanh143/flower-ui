@@ -7,9 +7,10 @@ import { AngleRightIcon } from '@/assets/images/icons';
 
 interface ISlideShowProps {
   images: (string | StaticImageData)[];
+  isHaveDots?: boolean;
 }
 
-export function SlideShow({ images }: ISlideShowProps) {
+export function SlideShow({ images, isHaveDots = true }: ISlideShowProps) {
   const [currentImage, setCurrentImage] = useState(0);
 
   const totalImages = images.length;
@@ -52,30 +53,32 @@ export function SlideShow({ images }: ISlideShowProps) {
           onClick={handleChangeImages('next')}
         />
       </div>
-      <div className='flex mx-auto gap-4 px-[2rem]'>
-        {images.map((image, index) => (
-          <div
-            className={cx(
-              'col-span-1 w-[56px] h-[56px] cursor-pointer transition-opacity duration-200 ease-in-out hover:opacity-100 border-2',
-              {
-                'opacity-100 border-yellow-400': index === currentImage,
-                'opacity-60 border-transparent': index !== currentImage,
-              },
-            )}
-            key={index}
-            onClick={() => setCurrentImage(index)}
-          >
-            <Image
-              src={image}
-              alt='product-image'
-              width={0}
-              height={0}
-              sizes='100vw'
-              className='w-full h-full object-cover'
-            />
-          </div>
-        ))}
-      </div>
+      {isHaveDots && (
+        <div className='flex mx-auto gap-4 px-[2rem]'>
+          {images.map((image, index) => (
+            <div
+              className={cx(
+                'col-span-1 w-[56px] h-[56px] cursor-pointer transition-opacity duration-200 ease-in-out hover:opacity-100 border-2',
+                {
+                  'opacity-100 border-yellow-400': index === currentImage,
+                  'opacity-60 border-transparent': index !== currentImage,
+                },
+              )}
+              key={index}
+              onClick={() => setCurrentImage(index)}
+            >
+              <Image
+                src={image}
+                alt='product-image'
+                width={0}
+                height={0}
+                sizes='100vw'
+                className='w-full h-full object-cover'
+              />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

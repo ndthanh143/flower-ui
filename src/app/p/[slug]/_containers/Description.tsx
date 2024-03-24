@@ -18,7 +18,7 @@ export function Description({ data }: IDescriptionProps) {
             </div>
           </div>
         )}
-        <div>
+        {/* <div>
           <p className='text-base leading-[2.8rem]'>
             <b>Vận chuyển toàn quốc:</b> {data.isLongDistanceShipping ? 'Khả dụng' : 'Không khả dụng'}
           </p>
@@ -30,7 +30,7 @@ export function Description({ data }: IDescriptionProps) {
               </div>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

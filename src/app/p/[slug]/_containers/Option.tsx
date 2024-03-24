@@ -43,11 +43,11 @@ export async function Option({ data }: IOptionProps) {
           </div>
         </div>
       </div> */}
-      <div className='flex flex-col gap-4'>
+      {/* <div className='flex flex-col gap-4'>
         <p className='text-gray-400 text-sm'>Số lượng:</p>
         <QuantitySelection />
         <p className='text-red-500 font-bold text-sm'>Còn {data.quantity} sản phẩm trong kho</p>
-      </div>
+      </div> */}
       {data.relativeProducts.data.length > 0 && (
         <div>
           <p className='text-lg'>Phụ kiện đi kèm</p>

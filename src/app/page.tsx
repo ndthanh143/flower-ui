@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import bannerHome from '@/assets/images/home-page/banner.webp';
 import { categoryService } from '@/services';
-import { Collections } from './_components';
+import { Collections, SlideBanner } from './_components';
 import Link from 'next/link';
 
 function Banner() {
@@ -32,18 +32,23 @@ export default async function Home() {
   const categories = await categoryService.getAll();
 
   return (
-    <div className='flex flex-col gap-[80px] py-[50px]'>
-      {categories.data.map((category, index) => (
-        <>
-          <div className='container'>
-            <div className='flex flex-col gap-[50px]' key={category.id}>
-              <HeadingCustom isSecond title={category.attributes.displayTitle} />
-              <Collections categorySlug={category.attributes.slug} />
+    <>
+      <div>
+        <SlideBanner />
+      </div>
+      <div className='flex flex-col gap-[80px] py-[50px]'>
+        {categories.data.map((category, index) => (
+          <>
+            <div className='container'>
+              <div className='flex flex-col gap-[50px]' key={category.id}>
+                <HeadingCustom isSecond title={category.attributes.displayTitle} />
+                <Collections categorySlug={category.attributes.slug} />
+              </div>
             </div>
-          </div>
-          {index === 0 && <Banner />}
-        </>
-      ))}
-    </div>
+            {/* {index === 0 && <Banner />} */}
+          </>
+        ))}
+      </div>
+    </>
   );
 }

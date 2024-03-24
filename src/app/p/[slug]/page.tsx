@@ -1,8 +1,10 @@
-import { HeadingCustom, NewsLetter, SlideShow } from '@/components';
+import { HeadingCustom, Modal, NewsLetter, SlideShow } from '@/components';
 import { Description, Option, MoreProducts } from './_containers';
 import { productService } from '@/services';
 import { convertImageUrl } from '@/utils';
 import { Reviews } from './_containers/Reviews';
+import Slider from 'react-slick';
+import Image from 'next/image';
 
 export default async function ProductDetail({ params }: { params: { slug: string } }) {
   const slug = params?.slug;
@@ -31,7 +33,6 @@ export default async function ProductDetail({ params }: { params: { slug: string
       <div>
         <Reviews product={product} />
       </div>
-      <NewsLetter />
     </div>
   );
 }

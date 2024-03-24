@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Drawer, NavHeader } from '.';
 import { MenuIcon } from '@/assets/images/icons';
 
-function Title({ type }: { type: 'mobile' | 'desktop' }) {
+export function Title({ type }: { type: 'mobile' | 'desktop' }) {
   const [isInView, setIsInView] = useState<boolean>(false);
   const spanRef = useRef<HTMLSpanElement>(null);
 

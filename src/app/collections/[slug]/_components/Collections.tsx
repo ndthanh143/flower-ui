@@ -39,7 +39,9 @@ export function Collections({ categorySlug }: ICollectionsProps) {
           .fill(true)
           .map((_, index) => (
             <div className='col-span-1 flex flex-col gap-4' key={index}>
-              <Skeleton width='100%' height={400} />
+              <div className='w-full h-[20rem] md:h-[25rem] lg:h-[30rem] xl:h-[40rem] cursor-pointer overflow-hidden rounded-xl'>
+                <Skeleton width='100%' height='100%' />
+              </div>
               <div>
                 <Skeleton width='100%' height={21} className='mb-2' />
                 <Skeleton width='100%' height={21} />
