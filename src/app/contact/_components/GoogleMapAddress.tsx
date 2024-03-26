@@ -1,6 +1,5 @@
 'use client';
 
-import { Title } from '@/components';
 import { configs } from '@/configs';
 import { GoogleMap, InfoWindow, Marker, useJsApiLoader } from '@react-google-maps/api';
 import Image from 'next/image';
@@ -24,8 +23,6 @@ export function GoogleMapAddress() {
     googleMapsApiKey: configs.googleMapApi,
   });
 
-  const [isVisible, setIsVisible] = useState(true); // State to toggle visibility
-
   const [map, setMap] = useState<google.maps.Map | null>(null);
 
   const onLoad = useCallback(function callback(map: google.maps.Map) {
@@ -41,14 +38,15 @@ export function GoogleMapAddress() {
   }, []);
 
   return isLoaded ? (
-    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={19.81} onLoad={onLoad} onUnmount={onUnmount}>
-      {/* Child components, such as markers, info windows, etc. */}
-      <Marker
-        position={center}
-        onClick={() => setIsVisible(true)}
-        onMouseOver={() => setIsVisible(true)} // Show InfoWindow on hover
-        // onMouseOut={() => setIsVisible(false)} // Hide InfoWindow when not hovering
-      >
+    <GoogleMap
+      mapContainerStyle={containerStyle}
+      center={center}
+      zoom={19.81}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+      options={{ scrollwheel: false, gestureHandling: 'cooperative' }}
+    >
+      <Marker position={center}>
         <InfoWindow position={center}>
           <Link
             href={

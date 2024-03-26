@@ -37,7 +37,7 @@ export function Title({ type }: { type: 'mobile' | 'desktop' }) {
     <p
       className={
         type === 'desktop'
-          ? 'text-2xl text-[#69402B] text-center tracking-widest'
+          ? 'text-[4.5rem] text-[#69402B] text-center tracking-widest'
           : 'text-lg md:text-xl text-[#69402B] active:opacity-80 tracking-wider'
       }
       style={{ fontFamily: 'var(--font-logo-main)' }}
@@ -87,7 +87,7 @@ export function Header() {
               <Image src='/logo2.png' alt='logo' width={0} height={0} sizes='100vw' className='w-full h-full' />
             </div>
             <p
-              className='text-base text-[#69402B] text-left font-[400p tracking-wider'
+              className='text-base text-[#69402B] text-left font-[400] tracking-wider'
               style={{ fontFamily: 'var(--font-logo-sub)' }}
             >
               Gift for your Life

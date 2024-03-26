@@ -1,35 +1,11 @@
-import { Button, HeadingCustom } from '@/components';
-import Image from 'next/image';
+import { HeadingCustom } from '@/components';
 
-import bannerHome from '@/assets/images/home-page/banner.webp';
-import { categoryService } from '@/services';
-import { Collections, SlideBanner } from './_components';
-import Link from 'next/link';
-
-function Banner() {
-  return (
-    <div className='w-screen flex flex-col gap-12 items-center'>
-      <div className='w-full'>
-        <Image
-          src={bannerHome}
-          alt='banner-home-page'
-          width={0}
-          height={0}
-          sizes='100vw'
-          className='object-cover w-full'
-        />
-      </div>
-      <div className='w-[3/5]'>
-        <Link href='https://zalo.me/84705740407'>
-          <Button className='uppercase mx-auto w-full'>Liên hệ đặt hoa ngay</Button>
-        </Link>
-      </div>
-    </div>
-  );
-}
+import { categoryService, googleMapService } from '@/services';
+import { Collections, ReviewsSlider, SlideBanner } from './_components';
 
 export default async function Home() {
   const categories = await categoryService.getAll();
+  const reviews = await googleMapService.getReviewsFromGoogleMap('ChIJI5iShzXZdDER78yC24pf8N0');
 
   return (
     <>
@@ -45,10 +21,10 @@ export default async function Home() {
                 <Collections categorySlug={category.attributes.slug} />
               </div>
             </div>
-            {/* {index === 0 && <Banner />} */}
           </>
         ))}
       </div>
+      <ReviewsSlider reviews={reviews.reviews} />
     </>
   );
 }
