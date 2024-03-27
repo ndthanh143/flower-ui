@@ -24,7 +24,7 @@ export default async function Home() {
           </>
         ))}
       </div>
-      <ReviewsSlider reviews={reviews.reviews} />
+      {reviews && <ReviewsSlider reviews={reviews.reviews} />}
     </>
   );
 }

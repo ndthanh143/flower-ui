@@ -6,7 +6,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export function ReviewsSlider({ reviews }: { reviews: any[] }) {
-  console.log('reviews', reviews.length);
   return (
     <div className='container py-[20px]'>
       <Slider
