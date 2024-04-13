@@ -6,3 +6,4 @@ export * from './ArrowRightIcon';
 export * from './MenuIcon';
 export * from './PhoneIcon';
 export * from './AddressIcon';
+export * from './SearchIcon';

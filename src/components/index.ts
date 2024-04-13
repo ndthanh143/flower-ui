@@ -14,3 +14,8 @@ export * from './HeadingCustom';
 export * from './Modal';
 export * from './Drawer';
 export * from './FloatingButton';
+export * from './SearchBox';
+export * from './Loading';
+export * from './Flex';
+export * from './Stack';
+export * from './LoadingContainer';

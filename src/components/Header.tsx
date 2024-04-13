@@ -4,8 +4,9 @@ import cx from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { Drawer, NavHeader } from '.';
-import { MenuIcon } from '@/assets/images/icons';
+import { Drawer, NavHeader, SearchBox } from '.';
+import { MenuIcon, SearchIcon } from '@/assets/images/icons';
+import { useBoolean } from '@/hooks';
 
 export function Title({ type }: { type: 'mobile' | 'desktop' }) {
   const [isInView, setIsInView] = useState<boolean>(false);
@@ -59,6 +60,8 @@ export function Header() {
   const [isOpenDrawer, setOpenDrawer] = useState(false);
   const [visible, setVisible] = useState(true);
 
+  const { value: isOpenSearchBox, setTrue: openSearchBox, setFalse: closeSearchBox } = useBoolean();
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
@@ -74,10 +77,13 @@ export function Header() {
     <>
       <div
         className={cx(
-          'bg-[#f7efec] flex flex-col gap-8 py-8 sticky w-screen z-10 top-0 transition-all ease-in-out duration-300',
+          'bg-[#f7efec] flex flex-col gap-8 py-8 sticky w-screen z-10 top-0 transition-all ease-in-out duration-300 relative',
           { 'translate-y-0': visible, '-translate-y-full': !visible },
         )}
       >
+        <div className='absolute right-8 top-8'>
+          <SearchIcon onClick={openSearchBox} className='cursor-pointer hover:text-yellow-500' />
+        </div>
         <Link
           href='/'
           className='hidden lg:flex w-fit hover:opacity-80 transition-all duration-200 mx-auto gap-8 items-center'
@@ -116,6 +122,7 @@ export function Header() {
       <div className='block lg:hidden'>
         <Drawer isOpen={isOpenDrawer} onClose={() => setOpenDrawer(false)} />
       </div>
+      <SearchBox isOpen={isOpenSearchBox} onClose={closeSearchBox} />
     </>
   );
 }

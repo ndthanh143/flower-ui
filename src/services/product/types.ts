@@ -32,4 +32,5 @@ export type Product = {
 export type GetProductsQuery = {
   categorySlug?: string;
   excludeItem?: string;
+  q?: string;
 } & PaginationQuery;

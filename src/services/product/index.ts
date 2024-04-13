@@ -5,6 +5,9 @@ export const productService = {
   getAll: async (query?: GetProductsQuery) => {
     const { data } = await axiosInstance.get<GetProductsResponse>(`products`, {
       params: {
+        ...(query?.q && {
+          _q: query?.q,
+        }),
         populate: '*',
         filters: {
           ...(query?.categorySlug && {

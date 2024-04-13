@@ -2,17 +2,20 @@ import { useState, useEffect } from 'react';
 
 interface FetchResponse<T> {
   data?: T;
+  isFetched: boolean;
   isLoading: boolean;
   refetch: () => void;
 }
 
 interface IUseFetchProps<T> {
   queryFn: () => Promise<T>;
+  enabled?: boolean;
 }
 
-export function useFetch<T>({ queryFn }: IUseFetchProps<T>): FetchResponse<T> {
+export function useFetch<T>({ queryFn, enabled = true }: IUseFetchProps<T>): FetchResponse<T> {
   const [data, setData] = useState<T>();
   const [isLoading, setLoading] = useState<boolean>(false);
+  const [isFetched, setFetched] = useState<boolean>(false);
 
   const fetchData = async () => {
     setLoading(true);
@@ -23,16 +26,21 @@ export function useFetch<T>({ queryFn }: IUseFetchProps<T>): FetchResponse<T> {
       console.error('Error fetching data:', error);
     } finally {
       setLoading(false);
+      !isFetched && setFetched(true);
     }
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (enabled) {
+      fetchData();
+    }
+  }, [enabled]);
 
   const refetch = () => {
-    fetchData();
+    if (enabled) {
+      fetchData();
+    }
   };
 
-  return { data, isLoading, refetch };
+  return { data, isFetched, isLoading, refetch };
 }

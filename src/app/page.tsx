@@ -1,4 +1,4 @@
-import { HeadingCustom } from '@/components';
+import { HeadingCustom, Modal } from '@/components';
 
 import { categoryService, googleMapService } from '@/services';
 import { Collections, ReviewsSlider, SlideBanner } from './_components';

@@ -2,6 +2,7 @@
 
 import cx from 'classnames';
 import { useEffect, useRef, useState } from 'react';
+import { Modal, Title } from '.';
 
 interface IHeadingCustomProps {
   title: string;
@@ -35,19 +36,21 @@ export function HeadingCustom({ title, isSecond }: IHeadingCustomProps) {
   }, []);
 
   return (
-    <div className='flex flex-col items-center'>
-      {isSecond ? (
-        <h2 className='uppercase text-lg text-center leading-[4rem]'>{title}</h2>
-      ) : (
-        <h1 className='uppercase text-lg text-center leading-[4rem]'>{title}</h1>
-      )}
-      <span
-        ref={spanRef}
-        className={cx('block h-[4px] rounded-lg bg-yellow-400 transition-all duration-300', {
-          'w-0': !isInView,
-          'w-[40px]': isInView,
-        })}
-      />
-    </div>
+    <>
+      <div className='flex flex-col items-center'>
+        {isSecond ? (
+          <h2 className='uppercase text-lg text-center leading-[4rem]'>{title}</h2>
+        ) : (
+          <h1 className='uppercase text-lg text-center leading-[4rem]'>{title}</h1>
+        )}
+        <span
+          ref={spanRef}
+          className={cx('block h-[4px] rounded-lg bg-yellow-400 transition-all duration-300', {
+            'w-0': !isInView,
+            'w-[40px]': isInView,
+          })}
+        />
+      </div>
+    </>
   );
 }
