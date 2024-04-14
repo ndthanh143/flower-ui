@@ -81,7 +81,7 @@ export function Header() {
           { 'translate-y-0': visible, '-translate-y-full': !visible },
         )}
       >
-        <div className='absolute right-8 top-8'>
+        <div className='absolute right-8 top-8 hidden lg:block'>
           <SearchIcon onClick={openSearchBox} className='cursor-pointer hover:text-yellow-500' />
         </div>
         <Link

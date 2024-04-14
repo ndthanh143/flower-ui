@@ -6,23 +6,41 @@ import { productService } from '@/services';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { object, string } from 'yup';
+import { UseFormReturn, useForm } from 'react-hook-form';
+import { number, object, string } from 'yup';
 import { Collections, Filter } from './_components';
 
-const schema = object({ searchValue: string() });
+const schema = object({ searchValue: string(), min: number(), max: number() });
+
+export type FormSearchType = UseFormReturn<
+  {
+    min?: number | undefined;
+    max?: number | undefined;
+    searchValue?: string | undefined;
+  },
+  any,
+  {
+    min?: number | undefined;
+    max?: number | undefined;
+    searchValue?: string | undefined;
+  }
+>;
 
 export default function SearchPage() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const { register, getValues, handleSubmit } = useForm({
+  const form = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
       searchValue: searchParams.get('q') || '',
+      min: 0,
+      max: 1000000,
     },
   });
+
+  const { register, getValues, handleSubmit, watch } = form;
 
   const {
     data: products,
@@ -39,7 +57,7 @@ export default function SearchPage() {
     if (isFetchedProducts) {
       refetchProducts();
     }
-  }, [searchParams]);
+  }, [searchParams, watch('min'), watch('max')]);
 
   return (
     <LoadingContainer loading={isLoadingProducts}>
@@ -72,12 +90,19 @@ export default function SearchPage() {
             </button>
           </Flex>
         </form>
-        <p className='text-lg text-center my-8'>{products?.data.length || 0} sản phẩm</p>
-        <div className='grid grid-cols-4 gap-8 mt-[80px]'>
+        {products?.data.length === 0 && (
+          <p className='text-lg text-center my-8'>
+            Không có kết quả tìm kiếm cho <b>{searchParams.get('q')}</b>
+          </p>
+        )}
+        {products && products.data.length > 0 && (
+          <p className='text-lg text-center my-8'>{products.data.length} sản phẩm</p>
+        )}
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-8 mt-[20px] lg:mt-[80px]'>
           <div className='col-span-1'>
-            <Filter />
+            <Filter form={form} />
           </div>
-          <div className='col-span-3'>{products && <Collections data={products} />}</div>
+          <div className='col-span-1 md:col-span-3'>{products && <Collections data={products} />}</div>
         </div>
       </div>
     </LoadingContainer>

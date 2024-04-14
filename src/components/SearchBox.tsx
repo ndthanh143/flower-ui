@@ -86,10 +86,13 @@ export function SearchBox({ onClose, isOpen }: ISearchBoxProps) {
           </form>
           <h2 className='text-lg uppercase'>Danh mục</h2>
           <div className='grid grid-cols-2 gap-2'>
-            {categoriesList.map((category) => (
+            {categoriesList.map((category, index) => (
               <Link
                 href={category.href}
-                className='hover:text-yellow-500 focus:bg-gray-200 px-4 py-2 rounded-lg'
+                className={cx('hover:text-yellow-500 focus:bg-gray-200 px-4 py-2 rounded-lg', {
+                  'text-left': index % 2 === 0,
+                  'text-right lg:text-left': index % 2 !== 0,
+                })}
                 onClick={onClose}
               >
                 <p className='text-base uppercase'>{category.label}</p>
