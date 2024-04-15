@@ -8,6 +8,9 @@ const nextConfig = {
       { protocol: 'http', hostname: '127.0.0.1' },
     ],
   },
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
 };
 
 export default nextConfig;

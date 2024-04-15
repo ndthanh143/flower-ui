@@ -9,7 +9,7 @@ interface IProductCardProps {
 
 export function ProductCard({ data }: IProductCardProps) {
   return (
-    <Link href={`/p/${data.slug}`}>
+    <Link prefetch href={`/p/${data.slug}`}>
       <div className='flex flex-col gap-4 relative'>
         <div className='w-full h-[20rem] md:h-[25rem] lg:h-[30rem] xl:h-[40rem] cursor-pointer overflow-hidden rounded-xl'>
           <Image

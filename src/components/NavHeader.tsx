@@ -38,7 +38,7 @@ export function NavHeader() {
       <div className='flex flex-col gap-3'>
         {/* <ul className='flex justify-center gap-8 overflow-x-scroll'>
           {defaultNavList.map((nav) => (
-            <Link href={nav.href} key={nav.label}>
+            <Link prefetch href={nav.href} key={nav.label}>
               <li
                 key={nav.label}
                 className={cx(
@@ -53,7 +53,7 @@ export function NavHeader() {
         </ul> */}
         <ul className='flex justify-center gap-8 overflow-x-scroll'>
           {navList.map((nav) => (
-            <Link href={nav.href} key={nav.label}>
+            <Link prefetch href={nav.href} key={nav.label}>
               <li
                 key={nav.label}
                 className={cx(

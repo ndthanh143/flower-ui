@@ -9,7 +9,7 @@ interface IRelativeProductCardProps {
 
 export function RelativeProductCard({ data }: IRelativeProductCardProps) {
   return (
-    <Link href={'/'}>
+    <Link prefetch href={'/'}>
       <div className='flex flex-col cursor-pointer'>
         <div className='w-full h-[80px]'>
           <Image

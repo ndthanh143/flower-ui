@@ -60,7 +60,7 @@ export async function Option({ data }: IOptionProps) {
           </div>
         </div>
       )}
-      <Link href='https://zalo.me/84705740407' className='block w-full'>
+      <Link prefetch href='https://zalo.me/84705740407' className='block w-full'>
         <Button className='!py-4 !text-base'>Đặt hàng qua zalo</Button>
       </Link>
     </div>

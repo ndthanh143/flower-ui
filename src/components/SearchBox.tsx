@@ -88,6 +88,8 @@ export function SearchBox({ onClose, isOpen }: ISearchBoxProps) {
           <div className='grid grid-cols-2 gap-2'>
             {categoriesList.map((category, index) => (
               <Link
+                prefetch
+                key={category.href}
                 href={category.href}
                 className={cx('hover:text-yellow-500 focus:bg-gray-200 px-4 py-2 rounded-lg', {
                   'text-left': index % 2 === 0,

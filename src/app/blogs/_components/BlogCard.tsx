@@ -9,7 +9,7 @@ interface IBlogCard {
 
 export function BlogCard({ data }: IBlogCard) {
   return (
-    <Link href={`/blogs/${data.slug}`}>
+    <Link prefetch href={`/blogs/${data.slug}`}>
       <div className='group border border-gray-300 rounded-xl overflow-hidden'>
         <div className='w-full h-[300px] overflow-hidden'>
           <Image

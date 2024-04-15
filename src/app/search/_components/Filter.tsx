@@ -1,18 +1,13 @@
 import { Flex, Stack } from '@/components';
-import { yupResolver } from '@hookform/resolvers/yup';
 import cx from 'classnames';
 import { ChangeEvent, InputHTMLAttributes, forwardRef, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { number, object } from 'yup';
 import { FormSearchType } from '../page';
 import { debounce } from 'lodash';
 
-const schema = object({
-  min: number().required(),
-  max: number().required(),
-});
-
-const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(({ className, ...props }, ref) => {
+const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(function Input(
+  { className, ...props },
+  ref,
+) {
   return (
     <label
       htmlFor={props.name}

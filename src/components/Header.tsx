@@ -85,6 +85,7 @@ export function Header() {
           <SearchIcon onClick={openSearchBox} className='cursor-pointer hover:text-yellow-500' />
         </div>
         <Link
+          prefetch
           href='/'
           className='hidden lg:flex w-fit hover:opacity-80 transition-all duration-200 mx-auto gap-8 items-center'
         >
@@ -107,7 +108,7 @@ export function Header() {
           <NavHeader />
         </div>
         <div className='flex lg:hidden items-center justify-between container'>
-          <Link href='/' className='flex items-center gap-4'>
+          <Link prefetch href='/' className='flex items-center gap-4'>
             <div className='w-[4.5rem] cursor-pointer hover:opacity-80 active:opacity-80 mx-auto'>
               <Image src='/logo2.png' alt='logo' width={0} height={0} sizes='100vw' className='w-full h-full' />
             </div>

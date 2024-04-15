@@ -45,7 +45,7 @@ export function ReviewsSlider({ reviews }: { reviews: any[] }) {
               </div>
               <p className='text-base mt-4 text-ellipsis line-clamp-3'>{review.text}</p>
             </div>
-            <Link href={review.author_url}>
+            <Link prefetch href={review.author_url}>
               <div className='flex gap-4 items-center mt-8'>
                 <div className='rounded-full overflow-hidden w-[40px] h-[40px]'>
                   <Image
@@ -67,7 +67,10 @@ export function ReviewsSlider({ reviews }: { reviews: any[] }) {
         ))}
       </Slider>
       <div className='flex justify-center mt-8'>
-        <Link href='https://www.google.com/maps/place/THE+SUNNY+FLOWER/@10.9461746,106.8133451,17z/data=!4m8!3m7!1s0x3174d93587929823:0xddf05f8adb82ccef!8m2!3d10.9461746!4d106.81592!9m1!1b1!16s%2Fg%2F11l2vhv07l?entry=ttu'>
+        <Link
+          prefetch
+          href='https://www.google.com/maps/place/THE+SUNNY+FLOWER/@10.9461746,106.8133451,17z/data=!4m8!3m7!1s0x3174d93587929823:0xddf05f8adb82ccef!8m2!3d10.9461746!4d106.81592!9m1!1b1!16s%2Fg%2F11l2vhv07l?entry=ttu'
+        >
           <button className='text-base p-4 border rounded-lg hover:bg-gray-200 transition-all duration-100 w-full lg:w-fit'>
             Để lại đánh giá
           </button>

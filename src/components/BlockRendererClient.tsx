@@ -36,7 +36,7 @@ export function BlockRendererClient({ content }: { readonly content: BlocksConte
           return <span className='ml-4'>{children}</span>;
         },
         link: ({ children, url }) => (
-          <Link href={url} className='hover:underline text-blue-600'>
+          <Link prefetch href={url} className='hover:underline text-blue-600'>
             {children}
           </Link>
         ),
