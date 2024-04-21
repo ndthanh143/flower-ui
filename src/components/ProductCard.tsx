@@ -52,7 +52,7 @@ export function ProductCard({ data }: IProductCardProps) {
               {data.name}
             </p>
             <p className='text-base hover:opacity-60 transition-opacity duration-150 text-[#f4835a]'>
-              {Number(data.price).toLocaleString('vi')}đ
+              {Number(data.price) > 0 ? `${Number(data.price).toLocaleString('vi')}đ` : 'Liên hệ'}
             </p>
           </div>
           {data.quantity === 0 && (
