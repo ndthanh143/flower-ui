@@ -1,15 +1,16 @@
 'use client';
 
-import { Flex, HeadingCustom, Loading, Modal } from '.';
-import { categoryService } from '@/services';
+import cx from 'classnames';
 import Link from 'next/link';
-import { useFetch } from '@/hooks';
-import { useRouter } from 'next/navigation';
 import { object, string } from 'yup';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 import { yupResolver } from '@hookform/resolvers/yup';
-import cx from 'classnames';
 
+import { useFetch } from '@/hooks';
+import { categoryService } from '@/services';
+
+import { Flex, HeadingCustom, Loading, Modal } from '.';
 interface ISearchBoxProps {
   onClose: () => void;
   isOpen: boolean;

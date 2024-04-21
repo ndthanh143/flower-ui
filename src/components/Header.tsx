@@ -77,7 +77,7 @@ export function Header() {
     <>
       <div
         className={cx(
-          'bg-[#f7efec] flex flex-col gap-8 py-8 sticky w-screen z-10 top-0 transition-all ease-in-out duration-300 relative',
+          'bg-[#f7efec] flex flex-col gap-8 pt-8 sticky w-screen z-10 top-0 transition-all ease-in-out duration-300 relative',
           { 'translate-y-0': visible, '-translate-y-full': !visible },
         )}
       >
