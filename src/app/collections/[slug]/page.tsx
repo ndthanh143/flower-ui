@@ -10,8 +10,6 @@ export default async function CategoryPage({ params }: ICategoryPageProps) {
 
   const category = await categoryService.getBySlug(params.slug || '');
 
-  console.log('category', category);
-
   return (
     <div className='py-[40px] container flex flex-col gap-[50px]'>
       <div className='flex flex-col items-center gap-4'>

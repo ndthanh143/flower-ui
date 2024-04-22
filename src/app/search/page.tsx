@@ -98,7 +98,7 @@ export default function SearchPage() {
         {products && products.data.length > 0 && (
           <p className='text-lg text-center my-8'>{products.data.length} sản phẩm</p>
         )}
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-8 mt-[20px] lg:mt-[80px]'>
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-[60px] mt-[20px] lg:mt-[80px]'>
           <div className='col-span-1'>
             <Filter form={form} />
           </div>

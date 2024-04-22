@@ -16,10 +16,14 @@ export async function Option({ data }: IOptionProps) {
   const totalReviewAmounts = ratings.data.length;
 
   return (
-    <div className='border p-10 flex flex-col gap-10'>
-      <p className='text-xl'>{Number(data.price).toLocaleString('en-US')} VNĐ</p>
+    <div className='border p-10 flex flex-col gap-10 rounded-xl'>
+      {Boolean(Number(data.price)) ? (
+        <p className='text-xl'>{Number(data.price).toLocaleString('en-US')} VNĐ</p>
+      ) : (
+        <p className='text-xl'>Liên hệ để biết thêm về giá</p>
+      )}
       <div className='flex gap-4 items-center'>
-        <Rating value={avgRating} readonly />
+        <Rating value={avgRating || 5} readonly />
         <span className='text-base'>({totalReviewAmounts})</span>
       </div>
       {/* <div className='flex flex-col gap-4'>

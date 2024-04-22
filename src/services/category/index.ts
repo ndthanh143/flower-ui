@@ -3,7 +3,9 @@ import { CategoriesResponse } from './types';
 
 export const categoryService = {
   getAll: async () => {
-    const { data } = await axiosInstance.get<CategoriesResponse>('categories', { params: { populate: '*' } });
+    const { data } = await axiosInstance.get<CategoriesResponse>('categories', {
+      params: { populate: '*', sort: [{ order: 'asc' }] },
+    });
 
     return data;
   },

@@ -1,4 +1,4 @@
-import { BaseData, BasePaginationResponse } from '../types';
+import { BaseData, BasePaginationResponse, ImageData } from '../types';
 
 export type CategoriesResponse = BasePaginationResponse<Category>;
 
@@ -7,4 +7,7 @@ export type Category = {
   displayTitle: string;
   description: string;
   slug: string;
+  images: {
+    data: ImageData[] | null;
+  };
 } & BaseData;

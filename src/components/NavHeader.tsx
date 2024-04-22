@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation';
 import { Flex } from '.';
 import flowerIcon from '@/assets/images/common/flower-icon.webp';
 import Image from 'next/image';
+import { convertImageUrl } from '@/utils';
 
 export function NavHeader() {
   const pathname = usePathname();
@@ -19,6 +20,8 @@ export function NavHeader() {
     categories?.data.map((category) => ({
       label: category.attributes.name,
       href: `/collections/${category.attributes.slug}`,
+      images:
+        category.attributes.images.data?.map((item) => ({ id: item.id, url: convertImageUrl(item, 'medium') })) || [],
     })) || [];
 
   const defaultNavList = [
@@ -39,21 +42,6 @@ export function NavHeader() {
   return (
     categoriesList && (
       <div className='flex flex-col gap-3 relative'>
-        {/* <ul className='flex justify-center gap-8 overflow-x-scroll'>
-          {defaultNavList.map((nav) => (
-            <Link prefetch href={nav.href} key={nav.label}>
-              <li
-                key={nav.label}
-                className={cx(
-                  'text-base uppercase font-heading hover:text-yellow-500 transition-all duration-100 px-4 py-2',
-                  { 'text-yellow-500': pathname === nav.href },
-                )}
-              >
-                {nav.label}
-              </li>
-            </Link>
-          ))}
-        </ul> */}
         <ul className='flex justify-center gap-8'>
           {navList.map((nav, index) => (
             <Fragment key={index}>
@@ -95,36 +83,57 @@ export function NavHeader() {
                       'absolute top-[100%] left-0 bg-[#f7efec] rounded-lg z-10 w-screen translate-y-[10px] opacity-0 invisible group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all ease-in duration-150 shadow-inner',
                     )}
                   >
-                    <div className='grid grid-cols-10 py-8'>
-                      <div className='col-span-3 flex flex-col items-center border-r border-yellow-500 border-solid'>
-                        {categoriesList.map((category) => (
-                          <Flex className='gap-2 w-full justify-center' key={category.href}>
-                            <Image
-                              src={flowerIcon}
-                              width={20}
-                              height={20}
-                              alt='flower-icon'
-                              className={cx('transition-all duration-200 opacity-0', {
-                                'opacity-100': pathname === category.href,
-                                'opacity-0': pathname !== category.href,
-                              })}
-                            />
-                            <Link
-                              prefetch
-                              href={category.href}
-                              key={category.label}
-                              className={cx(
-                                'text-left text-base uppercase font-heading hover:text-yellow-500 transition-all duration-100 px-4 py-4',
-                                { 'text-yellow-500': pathname === category.href },
+                    <div className='relative container py-8'>
+                      {categoriesList.map((category) => (
+                        <Flex className='group/item w-full' key={category.href}>
+                          <Link prefetch href={category.href} className='w-1/4 hover:text-yellow-500'>
+                            <Flex className='w-full border-r border-yellow-500 border-solid'>
+                              <Image
+                                src={flowerIcon}
+                                width={20}
+                                height={20}
+                                alt='flower-icon'
+                                className={cx('transition-all duration-200 opacity-0 group-hover/item:opacity-100', {
+                                  'opacity-100': pathname === category.href,
+                                  'opacity-0': pathname !== category.href,
+                                })}
+                              />
+
+                              <span
+                                className={cx(
+                                  'text-left text-base uppercase font-heading transition-all duration-100 px-4 py-4',
+                                  { 'text-yellow-500': pathname === category.href },
+                                )}
+                              >
+                                {category.label}
+                              </span>
+                              {category.images.length === 0 && (
+                                <span className='bg-yellow-500 rounded-xl select-none px-2 py-1 text-sm text-white'>
+                                  Sắp có
+                                </span>
                               )}
-                            >
-                              {category.label}
-                            </Link>
-                          </Flex>
-                        ))}
-                      </div>
+                            </Flex>
+                          </Link>
+                          <div className='w-2/3 invisible group-hover/item:visible absolute grid grid-cols-3 gap-10 right-0 top-[50%] translate-y-[-50%]'>
+                            {category.images.map((image, imageIndex) => (
+                              <div className='col-span-1 w-full h-[300px]' key={image.id}>
+                                <Image
+                                  key={imageIndex}
+                                  src={image.url}
+                                  alt={image.id.toString()}
+                                  width={0}
+                                  height={0}
+                                  sizes='100vw'
+                                  className='w-full h-full object-cover'
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </Flex>
+                      ))}
                     </div>
-                    <div className='col-span-7'></div>
+                    {/* </div> */}
+                    {/* </div> */}
                   </div>
                 </div>
               )}
