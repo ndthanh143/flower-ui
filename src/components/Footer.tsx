@@ -52,7 +52,7 @@ export function Footer() {
         <div className='flex flex-col gap-6 text-base w-full lg:w-fit'>
           <p className='text-center lg:text-left'>
             Thiết kế hoa theo yêu cầu của bạn tặng sinh nhật, ngày kỉ niệm, ngày cưới, khai trương, hoa viếng…. Dịch vụ
-            đào tạo dạy cắm hoa 🌸 Có xuất hoa đơn VAT nếu khách hàng yêu cầu
+            đào tạo dạy cắm hoa 🌸 Có xuất hoá đơn VAT nếu khách hàng yêu cầu
           </p>
         </div>
       </div>
