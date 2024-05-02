@@ -7,6 +7,8 @@ import bannerHome1 from '@/assets/images/home-page/banner-1.png';
 import bannerHome2 from '@/assets/images/home-page/banner-2.png';
 import bannerHome3 from '@/assets/images/home-page/banner-3.png';
 import bannerHome4 from '@/assets/images/home-page/banner-4.png';
+import bannerHome5 from '@/assets/images/home-page/banner-5.png';
+import bannerHome6 from '@/assets/images/home-page/banner-6.png';
 
 export function SlideBanner() {
   return (
@@ -23,6 +25,12 @@ export function SlideBanner() {
         </div>
         <div className='h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px] w-screen'>
           <Image src={bannerHome4} alt='banner' width={0} height={0} sizes='100vw' className='w-full h-full' />
+        </div>
+        <div className='h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px] w-screen'>
+          <Image src={bannerHome5} alt='banner' width={0} height={0} sizes='100vw' className='w-full h-full' />
+        </div>
+        <div className='h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px] w-screen'>
+          <Image src={bannerHome6} alt='banner' width={0} height={0} sizes='100vw' className='w-full h-full' />
         </div>
       </Slider>
     </div>
