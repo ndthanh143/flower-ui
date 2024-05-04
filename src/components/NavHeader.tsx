@@ -83,7 +83,7 @@ export function NavHeader() {
                       'absolute top-[100%] left-0 bg-[#f7efec] rounded-lg z-10 w-screen translate-y-[10px] opacity-0 invisible group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all ease-in duration-150 shadow-inner',
                     )}
                   >
-                    <div className='relative container py-8'>
+                    <div className='relative container py-4'>
                       {categoriesList.map((category) => (
                         <Flex className='group/item w-full' key={category.href}>
                           <Link prefetch href={category.href} className='w-1/4 hover:text-yellow-500'>
