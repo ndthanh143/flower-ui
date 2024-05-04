@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import '@/assets/stylesheets/globals.css';
-import { FacebookChatbot } from './_components';
+// import { FacebookChatbot } from './_components';
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -75,7 +75,7 @@ export default async function RootLayout({
         />
       </head>
       <body>
-        <FacebookChatbot />
+        {/* <FacebookChatbot /> */}
         <FloatingButton />
         <div className='min-h-screen flex flex-col'>
           <Header />
