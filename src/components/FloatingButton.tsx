@@ -31,7 +31,7 @@ export function FloatingButton() {
           </Link>
           <Link
             prefetch
-            href='https://www.messenger.com/t/100090497948296'
+            href='https://m.me/100090497948296'
             className='flex items-center justify-center bg-white rounded-full shadow-lg transition duration-300 ease-in-out p-4'
           >
             <div className='h-[45px] w-[45px]'>
