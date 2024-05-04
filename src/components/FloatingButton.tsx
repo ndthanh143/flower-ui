@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 
 import zaloIcon from '@/assets/images/common/zalo.png';
@@ -5,11 +7,32 @@ import phoneIcon from '@/assets/images/common/phone.png';
 import messengerIcon from '@/assets/images/common/messenger.png';
 
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import cx from 'classnames';
 
 export function FloatingButton() {
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 200);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
+
   return (
     <>
-      <div className='fixed bottom-[20px] right-8 z-10'>
+      <div
+        className={cx('fixed bottom-[20px] right-8 z-10 transition-all duration-200 ease-in-out', {
+          'translate-x-[100px]': !visible,
+          'translate-x-0': visible,
+        })}
+      >
         <div className='flex flex-col gap-4 justify-center items-center'>
           <Link
             prefetch
