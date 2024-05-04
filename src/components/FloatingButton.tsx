@@ -29,8 +29,8 @@ export function FloatingButton() {
     <>
       <div
         className={cx('fixed bottom-[20px] right-8 z-10 transition-all duration-200 ease-in-out', {
-          'translate-x-[100px]': !visible,
-          'translate-x-0': visible,
+          'translate-x-[100px] opacity-0': !visible,
+          'translate-x-0 opacity-100': visible,
         })}
       >
         <div className='flex flex-col gap-4 justify-center items-center'>
