@@ -11,6 +11,15 @@ interface IBlogDetailPageProps {
     slug: string | undefined;
   };
 }
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const data = await blogService.getBlogs();
+
+  return data.data.map((data) => ({
+    slug: data.attributes.slug,
+  }));
+}
 
 export async function generateMetadata({ params }: IBlogDetailPageProps): Promise<Metadata> {
   const { slug = '' } = params;
