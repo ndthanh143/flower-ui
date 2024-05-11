@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 import { configs } from '@/configs';
-import { blogService, categoryService } from '@/services';
+import { blogService, categoryService, productService } from '@/services';
 
 const BASE_URL = configs.uriClient;
 
@@ -11,6 +11,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogs = await blogService.getBlogs();
 
   const categories = await categoryService.getAll();
+
+  const products = await productService.getAll();
 
   const commonSitemap = routes.map((route) => ({
     url: `${BASE_URL}/${route}`,
@@ -29,5 +31,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(category.attributes.createdAt),
     })) || [];
 
-  return [...commonSitemap, ...blogSitemap, ...categorySitemap];
+  const productSitemap = products.data.map((product) => ({
+    url: `${BASE_URL}/p/${product.attributes.slug}`,
+    lastModified: new Date(product.attributes.createdAt),
+  }));
+
+  return [...commonSitemap, ...blogSitemap, ...categorySitemap, ...productSitemap];
 }
