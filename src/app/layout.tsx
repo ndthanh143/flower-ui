@@ -73,6 +73,17 @@ export default async function RootLayout({
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8150668551715727`}
           crossOrigin='anonymous'
         />
+        <script async src='https://www.googletagmanager.com/gtag/js?id=G-KV0M69DSTG'></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-DJCXC26SBQ');`,
+          }}
+        />
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=G-KV0M69DSTG`}
+          crossOrigin='anonymous'
+        />
       </head>
       <body>
         {/* <FacebookChatbot /> */}
