@@ -33,11 +33,19 @@ export function Footer() {
               <p>(+84) 705 740 407</p>
             </div>
           </Link>
-          <div className='flex items-center justify-center lg:justify-start gap-4'>
-            {/* <div className='w-[20px] h-[20px]'>
+          <div className='flex justify-center lg:justify-start gap-4'>
+            <div className='w-[14px] h-[14px]'>
               <AddressIcon />
-            </div> */}
-            <p className=''>Số 38, Nguyễn Trãi, P. Thanh Bình, TP Biên Hoà, Đồng Nai (Chợ Biên Hoà)</p>
+            </div>
+            <p className=''>Đc 1: Số 38, Nguyễn Trãi, P. Thanh Bình, TP Biên Hoà, Đồng Nai (Chợ Biên Hoà)</p>
+          </div>
+          <div className='flex justify-center lg:justify-start gap-4'>
+            <div className='w-[14px] h-[14px]'>
+              <AddressIcon />
+            </div>
+            <p className=''>
+              Đc 2: Số 21-D11 Đường Võ Thị Sáu, P. Thống Nhất, TP. Biên Hoà, Đồng Nai. (Gần Cafe Katinat)
+            </p>
           </div>
           <div className='flex items-center gap-4'>
             <div className='w-[40px] h-[40px]'>
