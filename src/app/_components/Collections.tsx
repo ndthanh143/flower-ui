@@ -26,7 +26,7 @@ export async function Collections({ category }: ICollectionsProps) {
               ))}
             </div>
             {products?.meta.pagination.pageCount > 1 && (
-              <Link prefetch href={`/collections/${category.slug}`}>
+              <Link prefetch={false} href={`/collections/${category.slug}`}>
                 <IconButton className='w-fit text-[1.6rem] mx-auto' endIcon={<AngleRightIcon width={12} height={12} />}>
                   <h2>Xem tất cả</h2>
                 </IconButton>

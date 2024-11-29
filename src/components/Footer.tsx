@@ -8,13 +8,13 @@ export function Footer() {
       <div className='w-full xl:w-1/3 flex flex-col items-center lg:items-start gap-8'>
         <h2 className='text-base uppercase font-bold'>Menu</h2>
         <div className='flex flex-col gap-6 text-base text-center lg:text-left w-full lg:w-fit'>
-          <Link prefetch href='/' className='w-full block'>
+          <Link prefetch={false} href='/' className='w-full block'>
             Liên hệ & Đặt hàng
           </Link>
-          <Link prefetch href='/' className='w-full block'>
+          <Link prefetch={false} href='/' className='w-full block'>
             Chính sách đổi trả hàng
           </Link>
-          <Link prefetch href='/' className='w-full block'>
+          <Link prefetch={false} href='/' className='w-full block'>
             Chính sách vận chuyển
           </Link>
         </div>
@@ -22,10 +22,10 @@ export function Footer() {
       <div className='w-full xl:w-1/3 flex flex-col items-center lg:items-start gap-8'>
         <h2 className='text-base uppercase font-bold'>Liên hệ</h2>
         <div className='flex flex-col items-center lg:items-start gap-6 text-base text-center lg:text-left w-full lg:w-fit'>
-          {/* <Link prefetch href='mailto:example@gmail.com' className='w-full block'>
+          {/* <Link prefetch={false} href='mailto:example@gmail.com' className='w-full block'>
             example@gmail.com
           </Link> */}
-          <Link prefetch href='tel:0705740407' className='w-full block'>
+          <Link prefetch={false} href='tel:0705740407' className='w-full block'>
             <div className='flex items-center justify-center lg:justify-start gap-4'>
               {/* <div className='w-[20px] h-[20px]'>
                 <PhoneIcon />

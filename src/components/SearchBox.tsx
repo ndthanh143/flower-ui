@@ -7,34 +7,25 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { useFetch } from '@/hooks';
-import { categoryService } from '@/services';
-
 import { Flex, HeadingCustom, Loading, Modal } from '.';
+import { CategoriesResponse } from '@/services/category/types';
+import { CategoryMappedList } from '@/app/layout';
 interface ISearchBoxProps {
   onClose: () => void;
   isOpen: boolean;
+  categoriesList: CategoryMappedList;
 }
 
 const schema = object({
   searchValue: string(),
 });
 
-export function SearchBox({ onClose, isOpen }: ISearchBoxProps) {
+export function SearchBox({ onClose, isOpen, categoriesList }: ISearchBoxProps) {
   const router = useRouter();
 
   const { register, handleSubmit } = useForm({ resolver: yupResolver(schema), defaultValues: { searchValue: '' } });
 
-  const { data: categories, isLoading } = useFetch({ queryFn: () => categoryService.getAll() });
-
-  const categoriesList =
-    categories?.data.map((category) => ({
-      label: category.attributes.name,
-      href: `/collections/${category.attributes.slug}`,
-    })) || [];
-
   const handleSearch = (data: { searchValue?: string }) => {
-    console.log(data.searchValue);
     router.push(`/search?q=${data.searchValue}`);
     onClose();
   };
@@ -102,11 +93,11 @@ export function SearchBox({ onClose, isOpen }: ISearchBoxProps) {
               </Link>
             ))}
           </div>
-          {isLoading && (
+          {/* {isLoading && (
             <div className='relative flex justify-center'>
               <Loading />
             </div>
-          )}
+          )} */}
         </div>
       </Modal>
     )

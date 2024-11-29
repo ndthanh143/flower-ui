@@ -19,3 +19,4 @@ export * from './Loading';
 export * from './Flex';
 export * from './Stack';
 export * from './LoadingContainer';
+export * from './Divider';

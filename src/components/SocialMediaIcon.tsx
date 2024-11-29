@@ -13,7 +13,7 @@ interface ISocialMediaIconProps {
 export function SocialMediaIcon({ link, type }: ISocialMediaIconProps) {
   const socialIcon: Record<TSocialMediaType, ReactNode> = { facebook: <FacebookIcon className='w-1/4 h-1/4 m-auto' /> };
   return (
-    <Link prefetch href={link}>
+    <Link prefetch={false} href={link}>
       <div className='rounded-full border w-full h-full flex items-center hover:border-black transition-all duration-150'>
         <span>{socialIcon[type]}</span>
       </div>

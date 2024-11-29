@@ -45,7 +45,7 @@ export function ReviewsSlider({ reviews }: { reviews: any[] }) {
               </div>
               <p className='text-base mt-4 text-ellipsis line-clamp-3'>{review.text}</p>
             </div>
-            <Link prefetch href={review.author_url}>
+            <Link prefetch={false} href={review.author_url}>
               <div className='flex gap-4 items-center mt-8'>
                 <div className='rounded-full overflow-hidden w-[40px] h-[40px]'>
                   <Image

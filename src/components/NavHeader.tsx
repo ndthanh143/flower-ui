@@ -10,19 +10,16 @@ import { Flex } from '.';
 import flowerIcon from '@/assets/images/common/flower-icon.webp';
 import Image from 'next/image';
 import { convertImageUrl } from '@/utils';
+import { CategoryMappedList } from '@/app/layout';
 
-export function NavHeader() {
+export function NavHeader({
+  categories,
+  categoriesList,
+}: {
+  categories: CategoriesResponse;
+  categoriesList: CategoryMappedList;
+}) {
   const pathname = usePathname();
-
-  const [categories, setCategories] = useState<CategoriesResponse>();
-
-  const categoriesList =
-    categories?.data.map((category) => ({
-      label: category.attributes.name,
-      href: `/collections/${category.attributes.slug}`,
-      images:
-        category.attributes.images.data?.map((item) => ({ id: item.id, url: convertImageUrl(item, 'medium') })) || [],
-    })) || [];
 
   const defaultNavList = [
     { label: 'Liên hệ', href: '/contact' },
@@ -31,21 +28,13 @@ export function NavHeader() {
   ];
   const navList = [{ label: 'Trang chủ', href: '/' }, ...defaultNavList];
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      return categoryService.getAll();
-    };
-
-    fetchCategories().then((data) => setCategories(data));
-  }, []);
-
   return (
     categoriesList && (
       <div className='flex flex-col gap-3 relative'>
         <ul className='flex justify-center gap-8'>
           {navList.map((nav, index) => (
             <Fragment key={index}>
-              <Link prefetch href={nav.href}>
+              <Link prefetch={false} href={nav.href}>
                 <li
                   key={nav.label}
                   className={cx(
@@ -86,7 +75,7 @@ export function NavHeader() {
                     <div className='relative container py-4'>
                       {categoriesList.map((category) => (
                         <Flex className='group/item w-full' key={category.href}>
-                          <Link prefetch href={category.href} className='w-1/4 hover:text-yellow-500'>
+                          <Link prefetch={false} href={category.href} className='w-1/4 hover:text-yellow-500'>
                             <Flex className='w-full border-r border-yellow-500 border-solid'>
                               <Image
                                 src={flowerIcon}

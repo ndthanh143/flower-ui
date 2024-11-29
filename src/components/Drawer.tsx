@@ -1,28 +1,22 @@
 'use client';
 
-import { categoryService } from '@/services';
 import { CategoriesResponse } from '@/services/category/types';
 import cx from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { SocialMediaIcon } from './SocialMediaIcon';
+import { CategoryMappedList } from '@/app/layout';
 
 interface IDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+  categories: CategoriesResponse;
+  categoriesList: CategoryMappedList;
 }
 
-export function Drawer({ isOpen, onClose }: IDrawerProps) {
-  const [categories, setCategories] = useState<CategoriesResponse>();
-
+export function Drawer({ isOpen, onClose, categoriesList }: IDrawerProps) {
   const pathname = usePathname();
-
-  const categoriesList =
-    categories?.data.map((category) => ({
-      label: category.attributes.name,
-      href: `/collections/${category.attributes.slug}`,
-    })) || [];
 
   const navList = [...categoriesList];
   const defaultNavList = [
@@ -30,14 +24,6 @@ export function Drawer({ isOpen, onClose }: IDrawerProps) {
     { label: 'Liên hệ', href: '/contact' },
     { label: 'Bài viết', href: '/blogs' },
   ];
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      return categoryService.getAll();
-    };
-
-    fetchCategories().then((data) => setCategories(data));
-  }, []);
 
   useEffect(() => {
     if (pathname) {
@@ -87,7 +73,7 @@ export function Drawer({ isOpen, onClose }: IDrawerProps) {
             </Link>
           ))}
           <span className='w-full h-[1px] bg-gray-300 block' />
-          <Link prefetch href='tel:0705740407' className='w-full block focus:text-yellow-500'>
+          <Link prefetch={false} href='tel:0705740407' className='w-full block focus:text-yellow-500'>
             <p className='text-base'>(+84) 705 740 407</p>
           </Link>
           <Link

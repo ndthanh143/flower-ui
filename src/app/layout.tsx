@@ -7,6 +7,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import '@/assets/stylesheets/globals.css';
+import { categoryService } from '@/services';
+import { convertImageUrl } from '@/utils';
 // import { FacebookChatbot } from './_components';
 
 const oswald = Oswald({
@@ -63,11 +65,30 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
+export type CategoryMappedList = {
+  label: string;
+  href: string;
+  images: {
+    id: number;
+    url: string;
+  }[];
+}[];
+
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const categories = await categoryService.getAll();
+
+  const categoriesList =
+    categories?.data.map((category) => ({
+      label: category.attributes.name,
+      href: `/collections/${category.attributes.slug}`,
+      images:
+        category.attributes.images.data?.map((item) => ({ id: item.id, url: convertImageUrl(item, 'medium') })) || [],
+    })) || [];
+
   return (
     <html lang='en' className={`${oswald.variable} ${mulish.variable} ${greatVibes.variable} ${baskervville.variable}`}>
       <head>
@@ -92,7 +113,7 @@ export default async function RootLayout({
         {/* <FacebookChatbot /> */}
         <FloatingButton />
         <div className='min-h-screen flex flex-col'>
-          <Header />
+          <Header categories={categories} categoriesList={categoriesList} />
           <div className='my-auto'>{children}</div>
           <Footer />
         </div>

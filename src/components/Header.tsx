@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Drawer, NavHeader, SearchBox } from '.';
 import { MenuIcon, SearchIcon } from '@/assets/images/icons';
 import { useBoolean } from '@/hooks';
+import { CategoriesResponse } from '@/services/category/types';
+import { CategoryMappedList } from '@/app/layout';
 
 export function Title({ type }: { type: 'mobile' | 'desktop' }) {
   const [isInView, setIsInView] = useState<boolean>(false);
@@ -55,7 +57,13 @@ export function Title({ type }: { type: 'mobile' | 'desktop' }) {
   );
 }
 
-export function Header() {
+export function Header({
+  categories,
+  categoriesList,
+}: {
+  categories: CategoriesResponse;
+  categoriesList: CategoryMappedList;
+}) {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isOpenDrawer, setOpenDrawer] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -105,10 +113,10 @@ export function Header() {
           </div>
         </Link>
         <div className='hidden lg:block'>
-          <NavHeader />
+          <NavHeader categories={categories} categoriesList={categoriesList} />
         </div>
         <div className='flex lg:hidden items-center justify-between container'>
-          <Link prefetch href='/' className='flex items-center gap-4'>
+          <Link prefetch={false} href='/' className='flex items-center gap-4'>
             <div className='w-[4.5rem] cursor-pointer hover:opacity-80 active:opacity-80 mx-auto'>
               <Image src='/logo2.png' alt='logo' width={0} height={0} sizes='100vw' className='w-full h-full' />
             </div>
@@ -121,9 +129,14 @@ export function Header() {
         </div>
       </div>
       <div className='block lg:hidden'>
-        <Drawer isOpen={isOpenDrawer} onClose={() => setOpenDrawer(false)} />
+        <Drawer
+          isOpen={isOpenDrawer}
+          onClose={() => setOpenDrawer(false)}
+          categories={categories}
+          categoriesList={categoriesList}
+        />
       </div>
-      <SearchBox isOpen={isOpenSearchBox} onClose={closeSearchBox} />
+      <SearchBox isOpen={isOpenSearchBox} onClose={closeSearchBox} categoriesList={categoriesList} />
     </>
   );
 }
