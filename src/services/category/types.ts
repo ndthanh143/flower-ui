@@ -1,3 +1,4 @@
+import { SEO } from '../seo/types';
 import { BaseData, BasePaginationResponse, ImageData } from '../types';
 
 export type CategoriesResponse = BasePaginationResponse<Category>;
@@ -10,4 +11,5 @@ export type Category = {
   images: {
     data: ImageData[] | null;
   };
-} & BaseData;
+} & BaseData &
+  SEO;

@@ -1,6 +1,7 @@
 import { BlocksContent } from '@strapi/blocks-react-renderer';
 import { BaseData, BasePaginationResponse, BaseResponse, ImageData, PaginationQuery } from '../types';
 import { Category } from '../category/types';
+import { SEO } from '../seo/types';
 
 export type GetProductsResponse = BasePaginationResponse<Product>;
 
@@ -27,7 +28,8 @@ export type Product = {
   relativeProducts: {
     data: { id: number; attributes: Product }[];
   };
-} & BaseData;
+} & BaseData &
+  SEO;
 
 export type GetProductsQuery = {
   categorySlug?: string;

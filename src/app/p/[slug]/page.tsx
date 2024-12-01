@@ -1,10 +1,12 @@
 import { HeadingCustom, SlideShow } from '@/components';
 import { Description, Option, MoreProducts } from './_containers';
 import { productService } from '@/services';
-import { convertImageUrl } from '@/utils';
+import { convertImageUrl, getFullPageUrl, transformMetadata } from '@/utils';
 import { Reviews } from './_containers/Reviews';
 import { Metadata } from 'next';
 import { configs } from '@/configs';
+import { SEO } from '@/services/seo/types';
+import { ROUTES } from '@/constants';
 
 interface IProductDetailProps {
   params: { slug: string };
@@ -25,31 +27,16 @@ export async function generateMetadata({ params }: IProductDetailProps): Promise
 
   const { attributes: data } = await productService.getBySlug(slug);
 
-  return data
-    ? {
-        title: `${data.name} | The Sunny Flower`,
-        description: data.description,
-        openGraph: {
-          type: 'article',
-          url: `${configs.uriClient}/p/${data.slug}`,
-          title: data.name,
-          description: data.description,
-          siteName: configs.uriClient,
-          images: [
-            {
-              url: convertImageUrl(data.images.data?.[0], 'thumbnail'),
-              width: 850,
-              height: 650,
-              alt: data.name,
-            },
-          ],
-        },
-        keywords: data.name,
-        alternates: {
-          canonical: `${configs.uriClient}/p/${data.slug}`,
-        },
-      }
-    : {};
+  const seoData: SEO = {
+    metaTitle: `${data.name} | The Sunny Flower`,
+    metaDescription: data.description,
+    shareImage: {
+      data: data.images.data[0],
+    },
+    pageUrl: getFullPageUrl(ROUTES.PRODUCT.slug(slug)),
+  };
+
+  return transformMetadata(seoData);
 }
 export default async function ProductDetail({ params }: IProductDetailProps) {
   const slug = params?.slug;

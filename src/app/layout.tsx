@@ -7,8 +7,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import '@/assets/stylesheets/globals.css';
-import { categoryService } from '@/services';
-import { convertImageUrl } from '@/utils';
+import { categoryService, seoService } from '@/services';
+import { convertImageUrl, getFullPageUrl, transformMetadata } from '@/utils';
+import { ROUTES } from '@/constants';
 // import { FacebookChatbot } from './_components';
 
 const oswald = Oswald({
@@ -38,30 +39,42 @@ const baskervville = Baskervville({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  title: 'Hoa tươi biên hoà đẹp - Giao tận nơi nhanh chóng | The Sunny Flower',
-  description:
-    'Miễn Phí Giao Hoa Nội Thành, Hoa Tươi Biên Hoà Đẹp Nhiều Mẫu Giao Nhanh Có VAT. Địa chỉ uy tín, chất lượng với đa dạng các loại hoa tươi, phù hợp với mọi nhu cầu của khách hàng. Cam kết cung cấp hoa tươi mới nhất, đẹp nhất với giá cả hợp lý nhất.',
-  openGraph: {
-    title: 'Hoa tươi biên hoà đẹp - Giao tận nơi nhanh chóng | The Sunny Flower',
-    description:
-      'Miễn Phí Giao Hoa Nội Thành, Hoa Tươi Biên Hoà Đẹp Nhiều Mẫu Giao Nhanh Có VAT. Địa chỉ uy tín, chất lượng với đa dạng các loại hoa tươi, phù hợp với mọi nhu cầu của khách hàng. Cam kết cung cấp hoa tươi mới nhất, đẹp nhất với giá cả hợp lý nhất.',
-    images: '/open-graph.jpg',
-    url: '/',
-  },
-  twitter: {
-    title: 'Hoa tươi biên hoà đẹp - Giao tận nơi nhanh chóng | The Sunny Flower',
-    description:
-      'Miễn Phí Giao Hoa Nội Thành, Hoa Tươi Biên Hoà Đẹp Nhiều Mẫu Giao Nhanh Có VAT. Địa chỉ uy tín, chất lượng với đa dạng các loại hoa tươi, phù hợp với mọi nhu cầu của khách hàng. Cam kết cung cấp hoa tươi mới nhất, đẹp nhất với giá cả hợp lý nhất.',
-    images: '/open-graph.jpg',
-  },
-  alternates: {
-    canonical: '/',
-  },
-  verification: {
-    google: 'pRXlfr6P1IUxJeTqCD6CM-UUtWLAzprp_BGhHrC8ei0',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const seoData = await seoService.getSeoService(getFullPageUrl(ROUTES.HOME));
+
+  return {
+    ...transformMetadata(seoData.attributes),
+    verification: {
+      google: 'pRXlfr6P1IUxJeTqCD6CM-UUtWLAzprp_BGhHrC8ei0',
+    },
+    metadataBase: new URL(process.env.NEXT_PUBLIC_URI_CLIENT || ''),
+  };
+}
+
+// export const metadata: Metadata = {
+//   title: 'Hoa tươi biên hoà đẹp - Giao tận nơi nhanh chóng | The Sunny Flower',
+//   description:
+//     'Miễn Phí Giao Hoa Nội Thành, Hoa Tươi Biên Hoà Đẹp Nhiều Mẫu Giao Nhanh Có VAT. Địa chỉ uy tín, chất lượng với đa dạng các loại hoa tươi, phù hợp với mọi nhu cầu của khách hàng. Cam kết cung cấp hoa tươi mới nhất, đẹp nhất với giá cả hợp lý nhất.',
+//   openGraph: {
+//     title: 'Hoa tươi biên hoà đẹp - Giao tận nơi nhanh chóng | The Sunny Flower',
+//     description:
+//       'Miễn Phí Giao Hoa Nội Thành, Hoa Tươi Biên Hoà Đẹp Nhiều Mẫu Giao Nhanh Có VAT. Địa chỉ uy tín, chất lượng với đa dạng các loại hoa tươi, phù hợp với mọi nhu cầu của khách hàng. Cam kết cung cấp hoa tươi mới nhất, đẹp nhất với giá cả hợp lý nhất.',
+//     images: '/open-graph.jpg',
+//     url: '/',
+//   },
+//   twitter: {
+//     title: 'Hoa tươi biên hoà đẹp - Giao tận nơi nhanh chóng | The Sunny Flower',
+//     description:
+//       'Miễn Phí Giao Hoa Nội Thành, Hoa Tươi Biên Hoà Đẹp Nhiều Mẫu Giao Nhanh Có VAT. Địa chỉ uy tín, chất lượng với đa dạng các loại hoa tươi, phù hợp với mọi nhu cầu của khách hàng. Cam kết cung cấp hoa tươi mới nhất, đẹp nhất với giá cả hợp lý nhất.',
+//     images: '/open-graph.jpg',
+//   },
+//   alternates: {
+//     canonical: '/',
+//   },
+//   verification: {
+//     google: 'pRXlfr6P1IUxJeTqCD6CM-UUtWLAzprp_BGhHrC8ei0',
+//   },
+// };
 
 export const revalidate = 60;
 
@@ -88,6 +101,9 @@ export default async function RootLayout({
       images:
         category.attributes.images.data?.map((item) => ({ id: item.id, url: convertImageUrl(item, 'medium') })) || [],
     })) || [];
+
+  const seoData = await seoService.getSeoService(getFullPageUrl(ROUTES.HOME));
+  console.log('seoData', seoData);
 
   return (
     <html lang='en' className={`${oswald.variable} ${mulish.variable} ${greatVibes.variable} ${baskervville.variable}`}>

@@ -1,10 +1,11 @@
 import { Metadata } from 'next';
 
-import { configs } from '@/configs';
 import { blogService } from '@/services';
-import { convertImageUrl } from '@/utils';
+import { convertImageUrl, getFullPageUrl, transformMetadata } from '@/utils';
 import { BlockRendererClient } from '@/components';
 import Image from 'next/image';
+import { SEO } from '@/services/seo/types';
+import { ROUTES } from '@/constants';
 
 interface IBlogDetailPageProps {
   params: {
@@ -26,31 +27,14 @@ export async function generateMetadata({ params }: IBlogDetailPageProps): Promis
 
   const data = await blogService.getBlogDetail(slug);
 
-  return data
-    ? {
-        title: data.metaTitle,
-        description: data.metaDescription,
-        openGraph: {
-          type: 'article',
-          url: `${configs.uriClient}/blog/${data.slug}`,
-          title: data.metaTitle,
-          description: data.metaDescription,
-          siteName: configs.uriClient,
-          images: [
-            {
-              url: convertImageUrl(data.thumbnail.data, 'thumbnail'),
-              width: 850,
-              height: 650,
-              alt: data.metaTitle,
-            },
-          ],
-        },
-        keywords: data.metaKeyword,
-        alternates: {
-          canonical: `${configs.uriClient}/blogs/${data.slug}`,
-        },
-      }
-    : {};
+  const seoData: SEO = {
+    metaTitle: data.metaTitle,
+    metaDescription: data.metaDescription,
+    shareImage: data.thumbnail,
+    pageUrl: getFullPageUrl(ROUTES.BLOGS.slug(slug)),
+  };
+
+  return transformMetadata(seoData);
 }
 
 export default async function BlogDetailPage({ params }: IBlogDetailPageProps) {

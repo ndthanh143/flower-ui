@@ -4,6 +4,16 @@ import storeImage1 from '@/assets/images/contact-page/store-1.jpg';
 import storeImage2 from '@/assets/images/contact-page/store-2.jpg';
 
 import { GoogleMapAddress, SliderImage } from './_components';
+import { Metadata } from 'next';
+import { seoService } from '@/services';
+import { getFullPageUrl, transformMetadata } from '@/utils';
+import { ROUTES } from '@/constants';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seoData = await seoService.getSeoService(getFullPageUrl(ROUTES.CONTACT));
+
+  return transformMetadata(seoData.attributes);
+}
 
 export default function ContactPage() {
   return (

@@ -1,5 +1,9 @@
-import { categoryService } from '@/services';
+import { categoryService, seoService } from '@/services';
 import { Collections } from './_components';
+import { Metadata } from 'next';
+import { getFullPageUrl, transformMetadata } from '@/utils';
+import { ROUTES } from '@/constants';
+import { SEO } from '@/services/seo/types';
 
 interface ICategoryPageProps {
   params: { slug: string | undefined };
@@ -13,6 +17,19 @@ export async function generateStaticParams() {
   return data.data.map((data) => ({
     slug: data.attributes.slug,
   }));
+}
+
+export async function generateMetadata({ params }: ICategoryPageProps): Promise<Metadata> {
+  const category = await categoryService.getBySlug(params.slug || '');
+
+  const seoData: SEO = {
+    metaTitle: category.attributes.metaTitle,
+    metaDescription: category.attributes.metaDescription,
+    shareImage: category.attributes.shareImage,
+    pageUrl: getFullPageUrl(ROUTES.COLLECTIONS.slug(params.slug || '')),
+  };
+
+  return transformMetadata(seoData);
 }
 
 export default async function CategoryPage({ params }: ICategoryPageProps) {

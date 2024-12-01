@@ -1,23 +1,18 @@
-'use client';
+import { Metadata } from 'next';
 
-import { useEffect, useState } from 'react';
-import { BlogCard } from './_components';
-import { GetBlogsResponse } from '@/services/blog/type';
-import { blogService } from '@/services/blog';
+import { ROUTES } from '@/constants';
+import { seoService } from '@/services';
+import { getFullPageUrl, transformMetadata } from '@/utils';
 
-export default function BlogsPage() {
-  const [blogs, setBlogs] = useState<GetBlogsResponse>();
+import { BlogsPageContent } from './_components';
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      return blogService.getBlogs();
-    };
+export async function generateMetadata(): Promise<Metadata> {
+  const seoData = await seoService.getSeoService(getFullPageUrl(ROUTES.BLOGS.index));
 
-    fetchBlogs()
-      .then((data) => setBlogs(data))
-      .finally(() => {});
-  }, []);
+  return transformMetadata(seoData.attributes);
+}
 
+export default async function BlogsPage() {
   return (
     <div className='container flex flex-col gap-[40px] py-[60px]'>
       <div className='flex flex-col items-center gap-4'>
@@ -25,11 +20,7 @@ export default function BlogsPage() {
         <span className='block w-12 h-1 rounded-lg bg-yellow-400' />
       </div>
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
-        {blogs?.data.map((blog) => (
-          <div className='col-span-1' key={blog.id}>
-            <BlogCard data={blog.attributes} />
-          </div>
-        ))}
+        <BlogsPageContent />
       </div>
     </div>
   );
