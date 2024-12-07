@@ -5,6 +5,8 @@ export default async function Home() {
   const categories = await categoryService.getAll();
   const reviews = await googleMapService.getReviewsFromGoogleMap('ChIJI5iShzXZdDER78yC24pf8N0');
 
+  console.log('reviews', JSON.stringify(reviews));
+
   return (
     <>
       <div>

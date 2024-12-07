@@ -103,7 +103,6 @@ export default async function RootLayout({
     })) || [];
 
   const seoData = await seoService.getSeoService(getFullPageUrl(ROUTES.HOME));
-  console.log('seoData', seoData);
 
   return (
     <html lang='en' className={`${oswald.variable} ${mulish.variable} ${greatVibes.variable} ${baskervville.variable}`}>
