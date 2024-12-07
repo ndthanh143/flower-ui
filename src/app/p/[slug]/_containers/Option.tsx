@@ -10,8 +10,6 @@ interface IOptionProps {
 export async function Option({ data }: IOptionProps) {
   const ratings = await reviewService.getAll({ productSlug: data.slug });
 
-  console.log('ratings', ratings);
-
   const avgRating = ratings.data.reduce((acc, cur) => acc + cur.attributes.rate, 0) / ratings.data.length || 0;
   const totalReviewAmounts = ratings.data.length;
 

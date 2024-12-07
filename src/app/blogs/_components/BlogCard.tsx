@@ -23,7 +23,7 @@ export function BlogCard({ data }: IBlogCard) {
         </div>
         <div className='p-8'>
           <h2 className='text-lg mb-2'>{data.title}</h2>
-          <p className='text-base'>{data.description}</p>
+          <p className='text-base text-ellipsis line-clamp-4'>{data.description}</p>
         </div>
       </div>
     </Link>
