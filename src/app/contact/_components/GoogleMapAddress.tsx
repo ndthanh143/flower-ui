@@ -49,7 +49,7 @@ export function GoogleMapAddress() {
       <Marker position={center}>
         <InfoWindow position={center}>
           <Link
-            prefetch
+            prefetch={false}
             href={
               'https://www.google.com/maps/place/THE+SUNNY+FLOWER/@10.946182,106.815896,21z/data=!4m14!1m7!3m6!1s0x3174d93587929823:0xddf05f8adb82ccef!2sTHE+SUNNY+FLOWER!8m2!3d10.9461746!4d106.81592!16s%2Fg%2F11l2vhv07l!3m5!1s0x3174d93587929823:0xddf05f8adb82ccef!8m2!3d10.9461746!4d106.81592!16s%2Fg%2F11l2vhv07l?hl=en&entry=ttu'
             }

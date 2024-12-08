@@ -93,7 +93,7 @@ export function Header({
           <SearchIcon onClick={openSearchBox} className='cursor-pointer hover:text-yellow-500' />
         </div>
         <Link
-          prefetch
+          prefetch={false}
           href='/'
           className='hidden lg:flex w-fit hover:opacity-80 transition-all duration-200 mx-auto gap-8 items-center'
         >

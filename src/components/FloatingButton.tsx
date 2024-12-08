@@ -35,7 +35,7 @@ export function FloatingButton() {
       >
         <div className='flex flex-col gap-4 justify-center items-center'>
           <Link
-            prefetch
+            prefetch={false}
             href='tel:0705740407'
             className='flex items-center justify-center bg-white rounded-full shadow-lg transition duration-300 ease-in-out p-4'
           >
@@ -44,7 +44,7 @@ export function FloatingButton() {
             </div>
           </Link>
           <Link
-            prefetch
+            prefetch={false}
             href='https://zalo.me/84705740407'
             className='flex items-center justify-center bg-white rounded-full shadow-lg transition duration-300 ease-in-out p-4'
           >
@@ -53,7 +53,7 @@ export function FloatingButton() {
             </div>
           </Link>
           <Link
-            prefetch
+            prefetch={false}
             href='https://m.me/100090497948296'
             className='flex items-center justify-center bg-white rounded-full shadow-lg transition duration-300 ease-in-out p-4'
           >

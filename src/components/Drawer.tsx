@@ -43,7 +43,7 @@ export function Drawer({ isOpen, onClose, categoriesList }: IDrawerProps) {
         <ul className='p-4 flex flex-col gap-4'>
           {defaultNavList.map((nav) => (
             <Link
-              prefetch
+              prefetch={false}
               href={nav.href}
               key={nav.label}
               className={cx('focus:text-yellow-500', { 'text-yellow-500': pathname === nav.href })}
@@ -59,7 +59,7 @@ export function Drawer({ isOpen, onClose, categoriesList }: IDrawerProps) {
           <span className='w-full h-[1px] bg-gray-300 block' />
           {navList.map((nav) => (
             <Link
-              prefetch
+              prefetch={false}
               href={nav.href}
               key={nav.label}
               className={cx('focus:text-yellow-500', { 'text-yellow-500': pathname === nav.href })}
@@ -77,7 +77,7 @@ export function Drawer({ isOpen, onClose, categoriesList }: IDrawerProps) {
             <p className='text-base'>(+84) 705 740 407</p>
           </Link>
           <Link
-            prefetch
+            prefetch={false}
             href={
               'https://www.google.com/maps/place/THE+SUNNY+FLOWER/@10.946182,106.815896,21z/data=!4m14!1m7!3m6!1s0x3174d93587929823:0xddf05f8adb82ccef!2sTHE+SUNNY+FLOWER!8m2!3d10.9461746!4d106.81592!16s%2Fg%2F11l2vhv07l!3m5!1s0x3174d93587929823:0xddf05f8adb82ccef!8m2!3d10.9461746!4d106.81592!16s%2Fg%2F11l2vhv07l?hl=en&entry=ttu'
             }

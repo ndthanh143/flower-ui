@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return transformMetadata(seoData.attributes);
 }
 
-export default async function BlogsPage() {
+export default function BlogsPage() {
   return (
     <div className='container flex flex-col gap-[40px] py-[60px]'>
       <div className='flex flex-col items-center gap-4'>
