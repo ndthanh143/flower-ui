@@ -14,7 +14,7 @@ export function PlaceOrderButton({ product }: { product: Product }) {
 
   const sendToZalo = () => {
     const message = encodeURIComponent(`Xin Chào, mình muốn hỏi mua sản phẩm: ${product.name}, link: ${urlSite}`);
-    const zaloLink = `zalo://send?phone=84705740407&text=${message}`;
+    const zaloLink = `https://zalo.me/84705740407?message=${message}`;
     window.open(zaloLink, '_blank');
   };
 
