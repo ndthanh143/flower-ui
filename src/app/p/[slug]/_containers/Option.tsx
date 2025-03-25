@@ -1,7 +1,7 @@
 import { Button, QuantitySelection, Rating, RelativeProductCard } from '@/components';
 import { reviewService } from '@/services';
 import { Product } from '@/services/product/types';
-import Link from 'next/link';
+import { PlaceOrderButton } from './PlaceOrderButton';
 
 interface IOptionProps {
   data: Product;
@@ -62,9 +62,7 @@ export async function Option({ data }: IOptionProps) {
           </div>
         </div>
       )}
-      <Link prefetch={false} href='https://zalo.me/84705740407' className='block w-full'>
-        <Button className='!py-4 !text-base'>Đặt hàng qua zalo</Button>
-      </Link>
+      <PlaceOrderButton product={data} />
     </div>
   );
 }
